@@ -34,5 +34,17 @@
 
 
 ## Sau khi push xong thì lên trên github tạo pull request 
+### click compare
+
 ![image](https://user-images.githubusercontent.com/58757620/198094882-0aabed6a-e1a7-40a0-a108-ee9d6f7b7e5f.png)
+
+## Create pull request 
+### click create pull
+
+![image](https://user-images.githubusercontent.com/58757620/198095664-ef199866-5698-4a0d-994a-eb77f2c8f7b1.png)
+
+### Chờ bạn trong nhóm vaoof kiểm tra và merge code 
+
+
+
 
