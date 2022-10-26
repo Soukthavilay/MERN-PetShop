@@ -45,6 +45,9 @@
 
 ### Chờ bạn trong nhóm vaoof kiểm tra và merge code 
 
+![image](https://user-images.githubusercontent.com/58757620/198096001-8df8070f-1375-436c-84d8-4ce019486304.png)
 
+
+Chúc các bạn một ngày vui vẻ
 
 
