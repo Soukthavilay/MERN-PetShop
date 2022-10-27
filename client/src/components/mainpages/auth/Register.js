@@ -80,5 +80,5 @@ function Register() {
     </div>
   );
 }
-
+// register
 export default Register;
