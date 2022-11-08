@@ -5,9 +5,10 @@ import Close from './icon/close.svg';
 import Cart from './icon/cart.svg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { BiUser,BiSearchAlt } from 'react-icons/bi';
-import { BsCart3 } from 'react-icons/bs';
+import { BiUser, BiSearchAlt } from 'react-icons/bi';
+import { BsCart3, BsHeart } from 'react-icons/bs';
 import { HiOutlineLogout } from 'react-icons/hi';
+import { AiOutlineHistory, AiOutlineHeart } from 'react-icons/ai';
 import Logo from './icon/logo-white-1.svg';
 
 function Header() {
@@ -28,12 +29,12 @@ function Header() {
   const adminRouter = () => {
     return (
       <>
-        <li>
-          <Link to="/create_product">Tạo Sản Phẩm</Link>
-        </li>
-        <li>
-          <Link to="/category">Loại</Link>
-        </li>
+          <li>
+            <Link to="/create_product">Tạo Sản Phẩm</Link>
+          </li>
+          <li>
+            <Link to="/category">Loại</Link>
+          </li>
       </>
     );
   };
@@ -42,11 +43,18 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/history">Lịch Sự Mua hàng</Link>
+          <Link to="/history">
+            <AiOutlineHistory />
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <BiUser />
+          </Link>
         </li>
         <li>
           <Link to="/" onClick={logoutUser}>
-            <HiOutlineLogout/>
+            <HiOutlineLogout />
           </Link>
         </li>
       </>
@@ -66,18 +74,31 @@ function Header() {
       <div className="logo">
         <h1>
           <Link to="/">
-            {isAdmin ? <img src={Logo} alt="PetPuzzy"/> : <img src={Logo} alt="PetPuzzy" />}
+            {isAdmin ? (
+              //
+              'Admin'
+            ) : (
+              <img src={Logo} alt="PetPuzzy" />
+            )}
           </Link>
         </h1>
       </div>
 
       <ul style={styleMenu}>
         <li>
-          <Link to="/">{isAdmin ? 'Sản Phẩm' : 'Mua Đồ'}</Link>
+          <Link to="/">{'home'}</Link>
+        </li>
+        <li>
+          <Link to="/">{isAdmin ? 'Sản Phẩm' : 'Shop'}</Link>
+        </li>
+        <li>
+          <Link to="/">{'about'}</Link>
+        </li>
+        <li>
+          <Link to="/">{'contact'}</Link>
         </li>
 
         {isAdmin && adminRouter()}
-
         {isLogged ? (
           loggedRouter()
         ) : (
@@ -88,6 +109,16 @@ function Header() {
           </li>
         )}
 
+        <li>
+          <Link to="#">
+            <BiSearchAlt />
+          </Link>
+        </li>
+        <li>
+          <Link to="#">
+            <AiOutlineHeart />
+          </Link>
+        </li>
         <li onClick={() => setMenu(!menu)}>
           <img src={Close} alt="" width="30" className="menu" />
         </li>
@@ -100,7 +131,7 @@ function Header() {
           <span>{cart.length}</span>
           <Link to="/cart">
             {/* <img src={Cart} alt="" width="30" /> */}
-            <BsCart3/>
+            <BsCart3 />
           </Link>
         </div>
       )}
