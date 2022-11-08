@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {GlobalState} from '../../../../GlobalState'
+import {AiOutlinePlusCircle} from 'react-icons/ai'
 
 function BtnRender({product, deleteProduct}) {
     const state = useContext(GlobalState)
@@ -23,7 +24,7 @@ function BtnRender({product, deleteProduct}) {
                 </>
                 : <>
                     <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
-                        Mua
+                        <AiOutlinePlusCircle/>
                     </Link>
                     <Link id="btn_view" to={`/detail/${product._id}`}>
                         Xem
