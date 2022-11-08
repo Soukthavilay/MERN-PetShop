@@ -10,6 +10,7 @@ const initialState = {
     price: 0,
     description: 'Stock up on the perfect afternoon snack, lunchtime side or baking choice with a Three-Pound Bag of Honeycrisp Apples from Good & Gather™. Boasting the perfect blend of sweet and crisp flavors, these delicious Honeycrisp apples promise to hit the spot when you’re craving something fresh and tasty, and the crisp, juicy texture is sure to satisfy.',
     category: '',
+    amount:1,
     _id: ''
 }
 
@@ -153,6 +154,11 @@ function CreateProduct() {
                     <input type="number" name="price" id="price" required
                     value={product.price} onChange={handleChangeInput} />
                 </div>
+                <div className="row">
+                    <label htmlFor="price">Số Lượng</label>
+                    <input type="number" name="amount" id="amount" required
+                    value={product.amount} onChange={handleChangeInput} />
+                </div>
 
                 <div className="row">
                     <label htmlFor="description">Mô tả Sản Phẩm</label>
@@ -160,11 +166,11 @@ function CreateProduct() {
                     value={product.description} rows="5" onChange={handleChangeInput} />
                 </div>
 
-                <div className="row">
+                {/* <div className="row">
                     <label htmlFor="content">Nội Dung</label>
                     <textarea type="text" name="content" id="content" required
                     value={product.content} rows="7" onChange={handleChangeInput} />
-                </div>
+                </div> */}
 
                 <div className="row">
                     <label htmlFor="categories">Loại Sản Phẩm: </label>
@@ -183,6 +189,7 @@ function CreateProduct() {
                 <button type="submit">{onEdit? "Sửa" : "Tạo Mới"}</button>
             </form>
         </div>
+        
     )
 }
 
