@@ -10,6 +10,7 @@ import LoadMore from './LoadMore'
 function Products() {
     const state = useContext(GlobalState)
     const [products, setProducts] = state.productsAPI.products
+    console.log(products)
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
     const [callback, setCallback] = state.productsAPI.callback
@@ -55,7 +56,7 @@ function Products() {
             if(product.checked) deleteProduct(product._id, product.images.public_id)
         })
     }
-
+    
     if(loading) return <div><Loading /></div>
     return (
         <>

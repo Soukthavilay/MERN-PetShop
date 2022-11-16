@@ -40,25 +40,38 @@
   display: flex;
   justify-content: space-between;
 }
+.row_btn svg {
+  width: 400px !important;
+  height: 54px;
+}
 .row_btn a {
-  width: 50px;
-  height: 50px;
+  width: 84px;
+  height: 33px;
   text-align: center;
   text-transform: uppercase;
-  color: #bd7a64;
+  color: rgba(247, 102, 49, 1);
   font-weight: 600;
   letter-spacing: 2px;
   padding: 6px;
 }
 #btn_buy {
-  /* background: #555;
-  margin-right: 5px; */
+  position: relative;
+  bottom: 42px;
+  left: 240px;
+  border-radius: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #btn_view {
-  background: rgba(63, 60, 154, 0.9);
-  margin-left: 5px;
+  /* margin-left: 5px; */
   border-radius: 26px;
-  padding-top: 12px;
+  /* padding-top: 12px; */
+  position: relative;
+  bottom: 487px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .product_card input {
   position: absolute;

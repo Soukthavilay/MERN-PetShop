@@ -166,12 +166,6 @@ function CreateProduct() {
                     value={product.description} rows="5" onChange={handleChangeInput} />
                 </div>
 
-                {/* <div className="row">
-                    <label htmlFor="content">Nội Dung</label>
-                    <textarea type="text" name="content" id="content" required
-                    value={product.content} rows="7" onChange={handleChangeInput} />
-                </div> */}
-
                 <div className="row">
                     <label htmlFor="categories">Loại Sản Phẩm: </label>
                     <select name="category" value={product.category} onChange={handleChangeInput} >

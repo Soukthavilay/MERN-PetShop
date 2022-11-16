@@ -4,6 +4,7 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-items: center;
   margin: 20px 0;
+  padding: 0px 168px;
 }
 
 /* ----------- Product Item ----------------- */
@@ -12,6 +13,7 @@
 .delete-all {
   text-align: right;
   margin: 20px;
+  padding: 0px 144px;
 }
 .delete-all input {
   height: 25px;
@@ -26,7 +28,8 @@
 }
 .delete-all button {
   border: 1px solid crimson;
-  padding: 10px 25px;
+  padding: 2px 20px;
+  border-radius: 10px;
   color: crimson;
   text-transform: uppercase;
 }
@@ -41,6 +44,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0 180px;
   /* margin: 15px 0; */
 }
 .filter_menu select,
@@ -50,7 +54,8 @@ input {
   outline: none;
   width: 177px;
   height: 46.54px;
-  padding: 0 5px;
+  padding: 0 23px;
+  /* margin: 10px 25px 10px 21px; */
 }
 .filter_menu input {
   flex: 1;
