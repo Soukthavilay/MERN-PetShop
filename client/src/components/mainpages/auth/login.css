@@ -53,3 +53,30 @@
   font-size: 13px;
   line-height: 14px;
 }
+.infor {
+  padding: 20px;
+}
+.info-section input {
+  padding: 10px;
+  width: 100%;
+}
+.info-section button {
+  background-color: #07055b;
+  color: white;
+  width: 100px;
+  margin-top: 10px;
+}
+
+#col-1 {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 100%;
+}
+#col-2 {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 100%;
+}
+

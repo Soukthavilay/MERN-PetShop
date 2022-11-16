@@ -18,7 +18,6 @@ function Login() {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Looogin")
       await axios.post('/user/login', { ...user });
 
       localStorage.setItem('firstLogin', true);
