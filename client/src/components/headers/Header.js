@@ -20,21 +20,46 @@ function Header() {
 
   const logoutUser = async () => {
     await axios.get('/user/logout');
-
     localStorage.removeItem('firstLogin');
-
     window.location.href = '/';
+  };
+  const ToggleSidebar = () => {
+    const [isOpen, setIsopen] = useState(false);
+    const ToggleSidebar = () => {
+      isOpen === true ? setIsopen(false) : setIsopen(true);
+    };
+    return (
+      <>
+        <div className="btn btn-primary" onClick={ToggleSidebar}>
+          <i className="fa fa-bars"></i>
+          <div className={`sidebar ${isOpen == true ? 'active' : ''}`}>
+            <div className="sd-body">
+              <ul>
+                <li>
+                  <Link to="/create_product">Create Product</Link>
+                </li>
+                <li>
+                  <Link to="/category">Create Category</Link>
+                </li>
+                <li>
+                  <Link to="/type">Create Type</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className={`sidebar-overlay ${isOpen == true ? 'active' : ''}`}
+            onClick={ToggleSidebar}
+          ></div>
+        </div>
+      </>
+    );
   };
 
   const adminRouter = () => {
     return (
       <>
-          <li>
-            <Link to="/create_product">Tạo Sản Phẩm</Link>
-          </li>
-          <li>
-            <Link to="/category">Loại</Link>
-          </li>
+        <ToggleSidebar />
       </>
     );
   };
@@ -48,7 +73,7 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link to="#">
+          <Link to="/infor">
             <BiUser />
           </Link>
         </li>
@@ -89,7 +114,7 @@ function Header() {
           <Link to="/">{'home'}</Link>
         </li>
         <li>
-          <Link to="/">{isAdmin ? 'Sản Phẩm' : 'Shop'}</Link>
+          <Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link>
         </li>
         <li>
           <Link to="/">{'about'}</Link>
