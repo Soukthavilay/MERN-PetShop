@@ -14,10 +14,10 @@ code {
     monospace;
 }
 .App {
-  max-width: 1230px;
+  /* max-width: 1230px; */
   min-height: 100vh;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   box-shadow: 0 0 35px #eee;
 }
 a {
@@ -57,6 +57,9 @@ button {
 
 /* ------------------- Create Product -------------- */
 @import url('./components/mainpages/createProduct/createProduct.css');
+
+@import url('./components/mainpages/type/type.css');
+@import url('./components/mainpages/auth/userinfo.css');
 
 /* ----------------- Responsive ------------------ */
 @media (max-width: 820px) {
