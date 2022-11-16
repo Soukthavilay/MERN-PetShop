@@ -1,22 +1,19 @@
-import {useState, useEffect} from 'react'
-import axios from 'axios'
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function TypeApi() {
-    const [types, setTypes] = useState([])
-    const [callback, setCallback] = useState(false)
-    useEffect(() =>{
-        const setTypes = async () =>{
-            const res = await axios.get('/api/type')
-            setTypes(res.data)
-        }
+  const [types, setTypes] = useState([]);
 
-        setTypes()
-    },[callback])
-    return {
-        categories: [types, setTypes],
-        callback: [callback, setCallback]
-    }
+  const getTypes = async () => {
+    const res = await axios.get('/api/type');
+    setTypes(res.data);
+  };
+  useEffect(() => {
+    getTypes();
+  }, []);
+  return {
+    type: [types, setTypes],
+  };
 }
 
-export default TypeApi
+export default TypeApi;

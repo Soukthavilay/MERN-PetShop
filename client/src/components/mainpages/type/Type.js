@@ -4,63 +4,72 @@ import axios from 'axios';
 
 function Type() {
   const state = useContext(GlobalState);
-  const [types] = state.typesAPI.types;
+  const [types, setTypes] = state.typesAPI.type;
   const [type, setType] = useState('');
-  const [token] = state.token;
-  const [callback, setCallback] = state.typesAPI.callback;
-  const [onEdit, setOnEdit] = useState(false);
-  const [id, setID] = useState('');
-
-  const CreateType = async (e) => {
-    e.preventDefault();
-    try {
-      if (onEdit) {
-        const res = await axios.put(
-          `/api/type/${id}`,
-          { name: type },
-          {
-            headers: { Authorization: token },
-          }
-        );
-        alert(res.data.msg);
-      } else {
-        const res = await axios.post(
-          '/api/type',
-          { name: type },
-          {
-            headers: { Authorization: token },
-          }
-        );
-        alert(res.data.msg);
-      }
-      setOnEdit(false);
-      setType('');
-      setCallback(!callback);
-    } catch (err) {
-      alert(err.response.data.msg);
-    }
-  };
+  console.log(types);
   return (
-    <div className="type">
-        <form onSubmit={CreateType}>
-            <label htmlFor="type">type</label>
-            <input type="text" name="type" value={type} required
-            onChange={e => setType(e.target.value)} />
-
-            <button type="submit">{onEdit? "Sửa" : "Tạo"}</button>
+    <>
+      <div class="type">
+        <form>
+          <div class="row">
+            <div class="col-25">
+              <label for="tname">Name</label>
+            </div>
+            <div class="col-75">
+              <input
+                type="text"
+                id="tname"
+                name="nameType"
+                placeholder="120 KG"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="ptype">Price</label>
+            </div>
+            <div class="col-75">
+              <input
+                type="text"
+                id="pname"
+                name="price"
+                placeholder="10-10000000000"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="tamount">Amount</label>
+            </div>
+            <div class="col-75">
+              <input
+                type="text"
+                id="tamount"
+                name="amount"
+                placeholder="1-100000000"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="tproduct">Product</label>
+            </div>
+            <div class="col-75">
+              <select id="tproduct" name="tproduct">
+                <option value="PE001">PE001</option>
+                <option value="PE002">PE002</option>
+                <option value="PE003">PE003</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <input type="submit" value="Create" />
+          </div>
         </form>
-
-        <div className="col">
-            {
-                types.map(type => (
-                    <div className="row" key={type._id}>
-                        <p>{type.name}</p>
-                    </div>
-                ))
-            }
-        </div>
-    </div>
-)
+      </div>
+    </>
+  );
 }
 
 export default Type;
