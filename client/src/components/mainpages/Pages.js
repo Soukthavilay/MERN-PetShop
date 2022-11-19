@@ -14,6 +14,9 @@ import Type from './type/Type';
 import UserInfo from './auth/UserInfo';
 
 import { GlobalState } from '../../GlobalState';
+import { Home } from './home/Home';
+import { About } from './about/About';
+import { Contact } from './contact/Contact';
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -22,7 +25,10 @@ function Pages() {
 
   return (
     <Switch>
-      <Route path="/" exact component={Products} />
+      <Route path="/" exact component={Home}/>
+      <Route path="/about" exact component={About} />
+      <Route path="/contact" exact component={Contact} />
+      <Route path="/products" exact component={Products} />
       <Route path="/detail/:id" exact component={DetailProduct} />
 
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
@@ -31,7 +37,7 @@ function Pages() {
         exact
         component={isLogged ? NotFound : Register}
       />
-      <Route path="/infor" exact component={isLogged ? UserInfo:NotFound} />
+      <Route path="/infor" exact component={isLogged ? UserInfo : NotFound} />
 
       <Route
         path="/category"

@@ -1,0 +1,20 @@
+.Pup-container{
+    padding: 20px 150px 0 150px;
+}
+.Parent {
+    display: flex;
+    flex-direction: row;
+}
+
+.child1 {
+    width: 70%;
+    text-align: center;
+}
+
+.child2 {
+    width: 30%;
+    padding: 30px;
+    height: 100vh;
+    border: green solid 5px;
+    margin: 50px;
+}

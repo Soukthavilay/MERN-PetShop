@@ -1,0 +1,99 @@
+.banner-content {
+  padding: 20px 150px 0 150px;
+  background-color: rgb(230 222 217);
+  background-image: url(../img/hero.jpg);
+  height: 897px;
+}
+.banner-left {
+  left: 194px;
+  top: 88px;
+  position: relative;
+  width: 50%;
+  right: 19px;
+}
+.banner-left > p h1 {
+  display: block;
+}
+.banner-left p > h1 {
+  font-size: 90px;
+  color: #000;
+}
+.banner-left > p {
+  font-size: 25px;
+  color: #fff;
+}
+.banner-right {
+  position: relative;
+  left: 50%;
+  bottom: 511px;
+  width: 45%;
+}
+.banner-btn > button {
+  background-color: #524eb7;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+}
+.widget {
+  background-color: #fff;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #524eb7;
+  width: 200px;
+  height: 50px;
+  /* top: 10px; */
+  position: relative;
+  bottom: 671px;
+  left: 376px;
+}
+.widget > p {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 58px;
+  top: 10px;
+}
+.motion-effect {
+  padding: 25px;
+  background-color: #fff;
+  width: 300px;
+  height: 204px;
+  position: relative;
+  border-radius: 15px;
+  /* top: -113px; */
+  bottom: 227px;
+  left: 134px;
+}
+.motion-effect > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+.motion-effect > p {
+  right: 0px;
+  margin-bottom: 0px;
+  left: 96px;
+  top: 0px;
+  /* bottom: 21px; */
+  position: relative;
+  margin-top: -59px;
+}
+.motion-effect > h3 {
+  top: 86px;
+  position: relative;
+  text-align: center;
+}
+.banner-btn {
+}
+.banner-btn > h3 {
+  position: relative;
+  left: 270px;
+  bottom: 39px;
+  font-size: 23px;
+  color: #6610f2;
+}
+

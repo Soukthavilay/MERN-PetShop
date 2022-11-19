@@ -6,19 +6,6 @@ function Loading() {
         <div className="load-page">
             <div className="loader">
                 <div>
-                    {/* <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

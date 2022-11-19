@@ -114,13 +114,13 @@ function Header() {
           <Link to="/">{'home'}</Link>
         </li>
         <li>
-          <Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link>
+          <Link to="/products">{isAdmin ? 'Products' : 'Shop'}</Link>
         </li>
         <li>
-          <Link to="/">{'about'}</Link>
+          <Link to="/about">{'about'}</Link>
         </li>
         <li>
-          <Link to="/">{'contact'}</Link>
+          <Link to="/contact">{'contact'}</Link>
         </li>
 
         {isAdmin && adminRouter()}
