@@ -4,6 +4,7 @@ import {GlobalState} from '../../../GlobalState'
 
 function OrderDetails() {
     const state = useContext(GlobalState)
+    console.log(state)
     const [history] = state.userAPI.history
     const [orderDetails, setOrderDetails] = useState([])
 

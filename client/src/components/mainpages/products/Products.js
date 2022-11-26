@@ -5,12 +5,11 @@ import Loading from '../utils/loading/Loading';
 import axios from 'axios';
 import Filters from './Filters';
 import LoadMore from './LoadMore';
-import Header from '../../headers/Header';
 
 function Products() {
   const state = useContext(GlobalState);
   const [products, setProducts] = state.productsAPI.products;
-  console.log(products);
+  //console.log(products);
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
   const [callback, setCallback] = state.productsAPI.callback;

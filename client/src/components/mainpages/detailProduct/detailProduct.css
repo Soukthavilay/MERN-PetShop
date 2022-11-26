@@ -56,3 +56,6 @@
 .box-detail span {
   color: rgba(255, 61, 0, 1);
 }
+.box-detail > .orange {
+  color: orange;
+}

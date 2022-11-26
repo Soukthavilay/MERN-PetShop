@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import ProductItem from '../utils/productItem/ProductItem';
+import { AiFillStar } from 'react-icons/ai';
 
 function DetailProduct() {
   const params = useParams();
@@ -27,15 +28,26 @@ function DetailProduct() {
         <div className="box-detail">
           <div className="row">
             <h3>{detailProduct.title}</h3>
-            <h6>#id: {detailProduct.product_id}</h6>
+            <h6>#id: {detailProduct._id}</h6>
           </div>
-          <p>****** [customer review]</p>
+          <p>
+            <AiFillStar style={{ color: 'orange' }} />
+            <AiFillStar style={{ color: 'orange' }} />
+            <AiFillStar style={{ color: 'orange' }} />
+            <AiFillStar />
+            <AiFillStar /> [review]
+          </p>
           <p>Đã Bán: {detailProduct.sold}</p>
           <div className="underline"></div>
           <br />
-          <span>$ {detailProduct.price}</span>
+          <span>{detailProduct.types[0].price}Đ</span>
           <p>{detailProduct.description}</p>
-
+          <label for="types">Choose a type:</label>
+          <select name="type" id="type">
+            {detailProduct.types.map((type) => (
+              <option key={type._id}>{type.name}</option>
+            ))}
+          </select>
           <Link
             to="/cart"
             className="cart"

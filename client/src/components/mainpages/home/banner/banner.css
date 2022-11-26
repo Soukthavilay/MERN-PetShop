@@ -2,10 +2,13 @@
   padding: 20px 150px 0 150px;
   background-color: rgb(230 222 217);
   background-image: url(../img/hero.jpg);
+  object-fit: cover;
   height: 897px;
+  background-position: center;
+  background-size: cover;
 }
 .banner-left {
-  left: 194px;
+  left: 36px;
   top: 88px;
   position: relative;
   width: 50%;
@@ -17,6 +20,7 @@
 .banner-left p > h1 {
   font-size: 90px;
   color: #000;
+  opacity: 88%;
 }
 .banner-left > p {
   font-size: 25px;
@@ -96,4 +100,3 @@
   font-size: 23px;
   color: #6610f2;
 }
-

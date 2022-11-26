@@ -6,6 +6,7 @@ function UserAPI(token) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [cart, setCart] = useState([]);
   const [history, setHistory] = useState([]);
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     if (token) {
@@ -14,11 +15,11 @@ function UserAPI(token) {
           const res = await axios.get('/user/infor', {
             headers: { Authorization: token },
           });
-
+          //console.log(res)
           setIsLogged(true);
           res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
 
-          // setCart(res.data.cart)
+          setCart(res.data.cart)
         } catch (err) {
           alert(err.response.data.msg);
         }
@@ -56,6 +57,7 @@ function UserAPI(token) {
     cart: [cart, setCart],
     addCart: addCart,
     history: [history, setHistory],
+    order: [order,setOrder],
   };
 }
 

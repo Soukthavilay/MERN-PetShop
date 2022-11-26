@@ -77,7 +77,7 @@ textarea {
   min-height: 40px;
   padding: 0 5px;
 }
-.create_product form button {
+.create_product form > button {
   width: 200px;
   height: 40px;
   background: #07055b;
@@ -86,4 +86,14 @@ textarea {
   letter-spacing: 2px;
   font-weight: 700;
   border-radius: 20px;
+}
+.row-type {
+  display: inline-block;
+}
+.row-type > div {
+  vertical-align: middle;
+  display: table-cell;
+}
+.btn-type > svg {
+  color: aqua !important;
 }

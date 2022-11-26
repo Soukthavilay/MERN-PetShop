@@ -18,11 +18,13 @@ function Login() {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
+      
       await axios.post('/user/login', { ...user });
-
+      
       localStorage.setItem('firstLogin', true);
-
+      
       window.location.href = '/';
+      // localStorage.removeItem()
     } catch (err) {
       alert(err.response.data.msg);
     }

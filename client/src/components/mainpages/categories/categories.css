@@ -16,14 +16,14 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.categories input,
+.categories > input,
 button {
   height: 35px;
   border: none;
   outline: none;
   border-bottom: 1px solid #555;
 }
-.categories input {
+.categories > input {
   width: 210px;
 }
 .categories button {
@@ -36,9 +36,10 @@ button {
 .categories .row {
   min-width: 290px;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
+  margin: 0 0 !important;
 }

@@ -64,6 +64,7 @@ button {
 @import url('./components/footer/footer.css');
 @import url('./components/mainpages/home/banner/banner.css');
 @import url('./components/mainpages/home/pup/pup.css');
+@import url('./components/mainpages/about/about.css');
 
 /* ----------------- Responsive ------------------ */
 @media (max-width: 820px) {

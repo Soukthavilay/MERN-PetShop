@@ -1,20 +1,29 @@
 import React from 'react';
-import {GoPlay} from 'react-icons/go'
-import {HiOutlinePlusCircle} from 'react-icons/hi'
+import { GoPlay } from 'react-icons/go';
+import { HiOutlinePlusCircle } from 'react-icons/hi';
 
 export const Banner = () => {
   return (
     <>
       <div className="banner-content">
         <div className="banner-left split">
-          <p><h1>Pet Care</h1><h1>For Today's</h1><h1>Pet Parents</h1></p>
           <p>
-            <p>Grooming and Supply provides grooming</p><p>service for all dog and cat
-            breeds. We are</p><p>fully committed to the health.</p>
+            <h1>Pet CareFor</h1>
+            <h1>Today'sPet</h1>
+            <h1>Parents</h1>
+          </p>
+          <p>
+            Grooming and Supply provides grooming service for all dog and cat
+            breeds. We are fully committed to the health.
           </p>
           <div className="banner-btn">
-            <button>Create Schedule   <HiOutlinePlusCircle/></button>
-            <h3><GoPlay/>Play Video</h3>
+            <button>
+              Create Schedule <HiOutlinePlusCircle />
+            </button>
+            <h3>
+              <GoPlay />
+              Play Video
+            </h3>
           </div>
         </div>
         {/* <div className="banner-right split">

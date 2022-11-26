@@ -1,12 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { GlobalState } from '../../../GlobalState';
-import axios from 'axios';
+import React from 'react';
+// import { GlobalState } from '../../../GlobalState';
 
 function Type() {
-  const state = useContext(GlobalState);
-  const [types, setTypes] = state.typesAPI.type;
-  const [type, setType] = useState('');
-  console.log(types);
+  // const state = useContext(GlobalState);
+  // const [types, setTypes] = state.typesAPI.type;
+  // const [type, setType] = useState('');
+  // console.log(types);
   return (
     <>
       <div class="type">

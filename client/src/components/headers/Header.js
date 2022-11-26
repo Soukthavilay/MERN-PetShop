@@ -2,17 +2,17 @@ import React, { useContext, useState } from 'react';
 import { GlobalState } from '../../GlobalState';
 import Menu from './icon/menu.svg';
 import Close from './icon/close.svg';
-import Cart from './icon/cart.svg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { BiUser, BiSearchAlt } from 'react-icons/bi';
-import { BsCart3, BsHeart } from 'react-icons/bs';
+import { BsCart3 } from 'react-icons/bs';
 import { HiOutlineLogout } from 'react-icons/hi';
 import { AiOutlineHistory, AiOutlineHeart } from 'react-icons/ai';
 import Logo from './icon/logo-white-1.svg';
 
 function Header() {
   const state = useContext(GlobalState);
+  //console.log(state)
   const [isLogged] = state.userAPI.isLogged;
   const [isAdmin] = state.userAPI.isAdmin;
   const [cart] = state.userAPI.cart;
@@ -32,7 +32,7 @@ function Header() {
       <>
         <div className="btn btn-primary" onClick={ToggleSidebar}>
           <i className="fa fa-bars"></i>
-          <div className={`sidebar ${isOpen == true ? 'active' : ''}`}>
+          <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
             <div className="sd-body">
               <ul>
                 <li>
@@ -48,7 +48,7 @@ function Header() {
             </div>
           </div>
           <div
-            className={`sidebar-overlay ${isOpen == true ? 'active' : ''}`}
+            className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`}
             onClick={ToggleSidebar}
           ></div>
         </div>

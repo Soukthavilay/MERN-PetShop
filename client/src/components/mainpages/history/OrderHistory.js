@@ -5,6 +5,7 @@ import axios from 'axios'
 
 function OrderHistory() {
     const state = useContext(GlobalState)
+    console.log(state)
     const [history, setHistory] = state.userAPI.history
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token

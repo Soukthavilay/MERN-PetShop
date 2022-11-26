@@ -2,23 +2,23 @@ import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {DataProvider} from './GlobalState'
 import Header from './components/headers/Header'
-import Footer from './components/footer/Footer'
+// import Footer from './components/footer/Footer'
 import MainPages from './components/mainpages/Pages'
 
 
 function App() {
 
-var body = {
-  name:"Koh",
-  type:[
-    {
-      name:"Koh",
-      price:"10",
-    }
-  ]
-}
+// var body = {
+//   name:"Koh",
+//   type:[
+//     {
+//       name:"Koh",
+//       price:"10",
+//     }
+//   ]
+// }
 
-console.log(body.type[0].name)
+// console.log(body.type[0].name)
 
   return (
     <DataProvider>
