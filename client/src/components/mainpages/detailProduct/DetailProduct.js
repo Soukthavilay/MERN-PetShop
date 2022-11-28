@@ -7,9 +7,15 @@ import { AiFillStar } from 'react-icons/ai';
 function DetailProduct() {
   const params = useParams();
   const state = useContext(GlobalState);
+  const [price, setPrice] = useState([]);
+  const [priceIndex, setPriceIndex] = useState([]);
   const [products] = state.productsAPI.products;
   const addCart = state.userAPI.addCart;
   const [detailProduct, setDetailProduct] = useState([]);
+
+  const changePrice = (e) => {
+    console.log(e.target.value);
+  };
 
   useEffect(() => {
     if (params.id) {
@@ -18,6 +24,7 @@ function DetailProduct() {
       });
     }
   }, [params.id, products]);
+
 
   if (detailProduct.length === 0) return null;
 
@@ -43,9 +50,9 @@ function DetailProduct() {
           <span>{detailProduct.types[0].price}Đ</span>
           <p>{detailProduct.description}</p>
           <label for="types">Choose a type:</label>
-          <select name="type" id="type">
+          <select name="type" id="type" onChange={(e) => changePrice()}>
             {detailProduct.types.map((type) => (
-              <option key={type._id}>{type.name}</option>
+              <option key={type._id} value={type.name}>{type.name}</option>
             ))}
           </select>
           <Link

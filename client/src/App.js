@@ -4,6 +4,7 @@ import {DataProvider} from './GlobalState'
 import Header from './components/headers/Header'
 // import Footer from './components/footer/Footer'
 import MainPages from './components/mainpages/Pages'
+import { TopHeader } from './components/top-header/TopHeader';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <DataProvider>
       <Router>
         <div className="App">
+          <TopHeader />
           <Header />
           <MainPages />
           {/* <Footer /> */}

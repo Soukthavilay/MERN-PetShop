@@ -1,38 +1,107 @@
+* {
+  font-family: 'Itim', cursive !important;
+}
+
 .banner-content {
-  padding: 20px 150px 0 150px;
-  background-color: rgb(230 222 217);
-  background-image: url(../img/hero.jpg);
-  object-fit: cover;
-  height: 897px;
-  background-position: center;
-  background-size: cover;
+  background-image: url("https://demothemedh.b-cdn.net/petpuzzy/wp-content/uploads/2022/05/h1-bg-slide.svg");
+  display: flex;
+  background-repeat: no-repeat;
+  justify-content: space-evenly;
 }
-.banner-left {
-  left: 36px;
-  top: 88px;
+
+.banner-left-split {
+  width: 40%;
+  top: 110px;
   position: relative;
-  width: 50%;
-  right: 19px;
 }
-.banner-left > p h1 {
+
+.banner-left{
+  margin-bottom: 30px;
+}
+
+.banner-large-label{
+  margin-bottom: 30px;
+}
+
+.banner-left .big-label {
+  color: #282344;
+  font-size: 70px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 80px;
   display: block;
 }
-.banner-left p > h1 {
+
+.banner-left .banner-paragraph {
+  width: 90%;
+  text-align: justify;
+  color: #605C78;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 36px;
+}
+
+.banner-play-video:hover {
+  cursor: pointer;
+}
+
+.banner-left>p h1 {
+  display: block;
+}
+
+.banner-left p>h1 {
   font-size: 90px;
   color: #000;
   opacity: 88%;
 }
-.banner-left > p {
+
+.banner-left>p {
   font-size: 25px;
   color: #fff;
 }
+
+.banner-number-container{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.banner-number {
+  width: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.banner-icon-circle {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: block;
+}
+
+.large-text {
+  color: #282344;
+  font-size: 70px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.small-text {
+  color: #605C78;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 26px;
+}
+
 .banner-right {
   position: relative;
-  left: 50%;
-  bottom: 511px;
+  top: 70px;
   width: 45%;
 }
-.banner-btn > button {
+
+.banner-btn>button {
   background-color: #524eb7;
   border-radius: 40px;
   font-weight: 600;
@@ -41,6 +110,7 @@
   width: 200px;
   height: 50px;
 }
+
 .widget {
   background-color: #fff;
   border-radius: 40px;
@@ -54,13 +124,15 @@
   bottom: 671px;
   left: 376px;
 }
-.widget > p {
+
+.widget>p {
   position: relative;
   justify-content: center;
   align-items: center;
   left: 58px;
   top: 10px;
 }
+
 .motion-effect {
   padding: 25px;
   background-color: #fff;
@@ -72,12 +144,14 @@
   bottom: 227px;
   left: 134px;
 }
-.motion-effect > img {
+
+.motion-effect>img {
   width: 60px;
   height: 60px;
   border-radius: 50px;
 }
-.motion-effect > p {
+
+.motion-effect>p {
   right: 0px;
   margin-bottom: 0px;
   left: 96px;
@@ -86,14 +160,16 @@
   position: relative;
   margin-top: -59px;
 }
-.motion-effect > h3 {
+
+.motion-effect>h3 {
   top: 86px;
   position: relative;
   text-align: center;
 }
-.banner-btn {
-}
-.banner-btn > h3 {
+
+.banner-btn {}
+
+.banner-btn>h3 {
   position: relative;
   left: 270px;
   bottom: 39px;

@@ -1,5 +1,8 @@
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css);
 
+.header-top{
+  height: 100px;
+}
 header {
   background-color: #524eb7;
   opacity: 100%;

@@ -12,7 +12,6 @@ import Logo from './icon/logo-white-1.svg';
 
 function Header() {
   const state = useContext(GlobalState);
-  //console.log(state)
   const [isLogged] = state.userAPI.isLogged;
   const [isAdmin] = state.userAPI.isAdmin;
   const [cart] = state.userAPI.cart;
@@ -30,28 +29,28 @@ function Header() {
     };
     return (
       <>
-        <div className="btn btn-primary" onClick={ToggleSidebar}>
-          <i className="fa fa-bars"></i>
-          <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
-            <div className="sd-body">
-              <ul>
-                <li>
-                  <Link to="/create_product">Create Product</Link>
-                </li>
-                <li>
-                  <Link to="/category">Create Category</Link>
-                </li>
-                <li>
-                  <Link to="/type">Create Type</Link>
-                </li>
-              </ul>
+          <div className="btn btn-primary" onClick={ToggleSidebar}>
+            <i className="fa fa-bars"></i>
+            <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
+              <div className="sd-body">
+                <ul>
+                  <li>
+                    <Link to="/create_product">Create Product</Link>
+                  </li>
+                  <li>
+                    <Link to="/category">Create Category</Link>
+                  </li>
+                  <li>
+                    <Link to="/type">Create Type</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <div
+              className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`}
+              onClick={ToggleSidebar}
+            ></div>
           </div>
-          <div
-            className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`}
-            onClick={ToggleSidebar}
-          ></div>
-        </div>
       </>
     );
   };
