@@ -49,10 +49,10 @@ function DetailProduct() {
           <br />
           <span>{detailProduct.types[0].price}Đ</span>
           <p>{detailProduct.description}</p>
-          <label for="types">Choose a type:</label>
-          <select name="type" id="type" onChange={(e) => changePrice()}>
+          <label>Choose a type:</label>
+          <select onClick={(e) => changePrice(e)}>
             {detailProduct.types.map((type) => (
-              <option key={type._id} value={type.name}>{type.name}</option>
+              <option key={type._id} value={type._id}>{type.name}</option>
             ))}
           </select>
           <Link

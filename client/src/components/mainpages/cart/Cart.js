@@ -85,7 +85,7 @@ function Cart() {
     }
 
     if(cart.length === 0) 
-        return <h2 style={{textAlign: "center", fontSize: "2rem"}}>Chưa có sản phẩm </h2> 
+        return <h2 className='none-product'>Chưa có sản phẩm </h2> 
 
     return (
         <div>
