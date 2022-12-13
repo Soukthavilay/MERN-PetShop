@@ -1,14 +1,23 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalState } from '../../../../GlobalState';
-import { AiOutlinePlusCircle, AiFillEdit, AiOutlineEye } from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiFillEdit, AiOutlineEye } from 'react-icons/ai';
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 function BtnRender({ product, deleteProduct }) {
   const state = useContext(GlobalState);
   const [isAdmin] = state.userAPI.isAdmin;
+  const [isLogged] = state.userAPI.isLogged;
   const addCart = state.userAPI.addCart;
-
+  const Check = async () => {
+    if (!isLogged) {
+      alert('Please login to continue buying');
+      window.open("/login","_self");
+    }else{
+      alert('Please select your type to buying');
+      window.open(`/detail/${product._id}`,"_self");
+    }
+  };
   return (
     <div className="row_btn">
       {isAdmin ? (
@@ -26,12 +35,12 @@ function BtnRender({ product, deleteProduct }) {
         </>
       ) : (
         <>
-          <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
-            <AiOutlinePlusCircle />
+          <Link id="btn_buy" onClick={() => Check()}>
+            <AiOutlineShoppingCart />
           </Link>
           <Link id="btn_view" to={`/detail/${product._id}`}>
-                        <AiOutlineEye/>
-                    </Link>
+            <AiOutlineEye style={{ display: 'none'}}/>
+          </Link>
         </>
       )}
     </div>
