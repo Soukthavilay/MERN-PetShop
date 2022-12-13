@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import ProductItem from '../utils/productItem/ProductItem';
 import { AiFillStar } from 'react-icons/ai';
+import Feedback from './Feedback'
 
 function DetailProduct() {
   const params = useParams();
@@ -75,28 +76,10 @@ function DetailProduct() {
           </div> */}
         </div>
       </div>
-      <div className="product-info-tabs">
-        <div className="header-feedback">
-          <h3>Review</h3>
-        </div>
-        <h2>REVIEWS</h2>
-        <p>There are no reviews yet.</p>
-        <p>Your rating</p>
-        <p>
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-        </p>
-        <p>Your message</p>
-        <textarea type="text" name="content" placeholder="comment your feedback"/>
-        <input type="text" name="name" id="name" placeholder="Name"/>
-        <input type="text" name="email" id="email" placeholder="Your Email"/>
-        <button type="button" name="btn-review">SUBMIT REVIEW</button>
-      </div>
+      <Feedback/>
+      <br/>
       <div>
-        <h2>Sản Phẩm Liên Quan</h2>
+        <h2 className="h2">Sản Phẩm Liên Quan</h2>
         <div className="products">
           {products.map((product) => {
             return product.category === detailProduct.category ? (
