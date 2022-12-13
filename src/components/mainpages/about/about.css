@@ -27,7 +27,10 @@
   clear: both;
   display: table;
 }
-
+.no-row {
+  margin-right: 0;
+  margin-left: 0;
+}
 .title {
   color: grey;
 }

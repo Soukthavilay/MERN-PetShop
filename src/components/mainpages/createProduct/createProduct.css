@@ -97,3 +97,6 @@ textarea {
 .btn-type > svg {
   color: aqua !important;
 }
+.no-line{
+  line-height: 0;
+}

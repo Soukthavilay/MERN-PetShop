@@ -13,7 +13,7 @@ export const About = () => {
       </div>
 
       <h2 style={{ textAlign: 'center' }}>Our Team</h2>
-      <div className="row">
+      <div className="row no-row">
         <div className="column">
           <div className="card">
             <img

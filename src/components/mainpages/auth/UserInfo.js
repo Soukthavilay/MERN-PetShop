@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
 import { GlobalState } from '../../../GlobalState';
-import axios from 'axios';
+
 
 function UserInfo() {
   const state = useContext(GlobalState);
   const token = state.token;
   console.log(token);
-  const [user, setUser] = state.userAPI.detail;
+  const [user] = state.userAPI.detail;
   console.log(user);
 
   return (

@@ -79,14 +79,14 @@
   } */
   a:hover{
     text-decoration: none;
-    color: #524EB7;
+    /* color: #524EB7; */
   }
 
   label{
     font-size: 14px;
   }
 
-  input{
+input{
     padding: 14px 30px;
     border: 1px solid var(--border);
     border-radius: 30px !important;
@@ -94,7 +94,6 @@
     outline: 0;
     transition: all ease-in-out .3s;
     font-size: 14px;
-    line-height: 24px;
     margin: 10px 0px;
   }
   legend{

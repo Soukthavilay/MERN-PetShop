@@ -166,7 +166,7 @@ function CreateProduct() {
       <div className="upload">
         <input type="file" name="file" id="file_up" onChange={handleUpload} />
         {loading ? (
-          <div id="file_img">
+          <div id="file_img" className="no-line">
             <Loading />
           </div>
         ) : (
