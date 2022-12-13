@@ -1,0 +1,35 @@
+
+.header-container-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 9px 30px;
+}
+
+.header-welcome-element{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-welcome-element p{
+    margin: 0;
+}
+
+.header-element{
+    display: flex;
+}
+
+.header-element p{
+    margin: 0 10px;
+}
+
+.header-element p:hover{
+    color: #524EB7;
+    cursor: pointer;
+}
+
+.header-icon-element:hover{
+    color: #F76631;
+    cursor: pointer;
+}

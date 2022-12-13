@@ -1,0 +1,31 @@
+.checkout-page{
+    width:100%;
+    height:100%;
+    padding:0 40px;
+    position: relative;
+    /* display: inline-block; */
+}
+.orderItem{
+    /* display: flex; */
+    /* justify-content:space-between; */
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.orderItem > img {
+    width: 150px;
+    height: 150px;
+}
+.btn_check{
+    background-color: rgba(63, 60, 154, 0.9);
+    border-radius:30px;
+    color: #fff;
+    width:150px;
+}
+.header-order{
+    display:flex;
+    justify-content: space-between;
+    margin-left: 188px;
+    margin-right: 43px;
+    margin-bottom: 39px;
+}
