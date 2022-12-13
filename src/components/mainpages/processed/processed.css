@@ -51,8 +51,8 @@ legend {
   color: inherit;
   font: inherit;
 }
-input[type='radio'] {
-  accent-color: var(--color-primary);
+.form__radio > input[type='radio'] {
+  accent-color: var(--color-primary) !important;
 }
 .process-table > table {
   border-collapse: collapse;
@@ -84,14 +84,14 @@ input[type='radio'] {
   padding-inline: 1em;
   transition: 0.3s;
 }
-.button:focus,
+/* .btn-processed > .button:focus,
 .button:hover {
   background-color: #e96363;
-}
+} */
 .button--full {
   inline-size: 100%;
 }
-.card {
+.form > .card {
   border-radius: 1em;
   background-color: var(--color-primary);
   color: #fff;

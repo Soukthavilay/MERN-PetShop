@@ -48,9 +48,9 @@ function DetailProduct() {
             <AiFillStar style={{ color: 'orange' }} />
             <AiFillStar style={{ color: 'orange' }} />
             <AiFillStar />
-            <AiFillStar /> [review]
+            <AiFillStar />
           </p>
-          <p>Đã Bán: {detailProduct.sold}</p>
+          {/* <p>Đã Bán: {detailProduct.sold}</p> */}
           <div className="underline"></div>
           <br />
           <span>{type.price}Đ</span>
@@ -75,7 +75,26 @@ function DetailProduct() {
           </div> */}
         </div>
       </div>
-
+      <div className="product-info-tabs">
+        <div className="header-feedback">
+          <h3>Review</h3>
+        </div>
+        <h2>REVIEWS</h2>
+        <p>There are no reviews yet.</p>
+        <p>Your rating</p>
+        <p>
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+        </p>
+        <p>Your message</p>
+        <textarea type="text" name="content" placeholder="comment your feedback"/>
+        <input type="text" name="name" id="name" placeholder="Name"/>
+        <input type="text" name="email" id="email" placeholder="Your Email"/>
+        <button type="button" name="btn-review">SUBMIT REVIEW</button>
+      </div>
       <div>
         <h2>Sản Phẩm Liên Quan</h2>
         <div className="products">
