@@ -32,7 +32,7 @@ function Pages() {
       <Route path="/contact" exact component={Contact} />
       <Route path="/products" exact component={Products} />
       <Route path="/detail/:id" exact component={DetailProduct} />
-      <Route path="/processed" exact component={Processed} />
+      <Route path="/processed" exact component={isLogged ? Processed : NotFound} />
 
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route
@@ -71,7 +71,7 @@ function Pages() {
       />
 
       <Route path="/cart" exact component={Cart} />
-      <Route path="/checkout" exact component={Checkout} />
+      <Route path="/checkout" exact component={isLogged ? Checkout : NotFound} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>

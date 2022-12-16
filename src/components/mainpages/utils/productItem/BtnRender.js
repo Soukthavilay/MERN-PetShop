@@ -35,7 +35,7 @@ function BtnRender({ product, deleteProduct }) {
         </>
       ) : (
         <>
-          <Link id="btn_buy" onClick={() => Check()}>
+          <Link to="" id="btn_buy" onClick={() => Check()}>
             <AiOutlineShoppingCart />
           </Link>
           <Link id="btn_view" to={`/detail/${product._id}`}>

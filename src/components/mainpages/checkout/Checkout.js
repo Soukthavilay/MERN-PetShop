@@ -66,6 +66,7 @@ const Checkout = () => {
   };
   return (
     <>
+    <h1 style={{textAlign: 'center',marginBottom:'10px'}}>Checkout order</h1>
       <div className="header-order">
         <h3></h3>
         <h3>Product name</h3>
