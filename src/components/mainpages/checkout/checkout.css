@@ -11,6 +11,10 @@
     margin: 5px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 25px;
 }
 .orderItem > img {
     width: 150px;

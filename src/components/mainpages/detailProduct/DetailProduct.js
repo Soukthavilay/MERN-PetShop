@@ -3,28 +3,47 @@ import { useParams, Link } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import ProductItem from '../utils/productItem/ProductItem';
 import { AiFillStar } from 'react-icons/ai';
-import Feedback from './Feedback'
+import Feedback from './Feedback';
+import axios from 'axios';
+import FeedbackItem from './FeedbackItem';
 
 function DetailProduct() {
   const params = useParams();
   const state = useContext(GlobalState);
   const [products] = state.productsAPI.products;
+  //const [token] = state.token;
+  //console.log(token);
+  //console.log(products)
   const addCart = state.userAPI.addCart;
   const [detailProduct, setDetailProduct] = useState([]);
-  const [price, setPrice] = useState('');
   const [type, setType] = useState();
-
+  const [feedback, setFeedback] = useState([]);
+  console.log(feedback)
   useEffect(() => {
     if (params.id) {
       products.forEach((product) => {
         if (product._id === params.id) {
           setDetailProduct(product);
-          //setPrice(product.types[0].price)
           setType(product.types[0]);
         }
       });
     }
   }, [params.id, products]);
+
+  useEffect(() => {
+    if (params.id) {
+      console.log(params.id);
+      const getFeedback = async () => {
+        try {
+          const res = await axios.get(`/api/products/${params.id}`);
+          setFeedback(res.data.feedbacks);
+        } catch (err) {
+          alert(err.response.data.msg);
+        }
+      };
+      getFeedback();
+    }
+  }, [params.id]);
 
   if (detailProduct.length === 0) return null;
   const checktype = (event) => {
@@ -45,18 +64,14 @@ function DetailProduct() {
             <h6>#id: {detailProduct._id}</h6>
           </div>
           <p>
-            <AiFillStar style={{ color: 'orange' }} />
-            <AiFillStar style={{ color: 'orange' }} />
-            <AiFillStar style={{ color: 'orange' }} />
-            <AiFillStar />
-            <AiFillStar />
+            {feedback.rating}
           </p>
           {/* <p>Đã Bán: {detailProduct.sold}</p> */}
           <div className="underline"></div>
           <br />
           <span>{type.price}Đ</span>
           <p>{detailProduct.description}</p>
-          <label for="types">Choose a type:</label>
+          <label htmlFor="types">Choose a type:</label>
           <select onChange={checktype} name="type" id="type">
             {detailProduct.types.map((type) => (
               <option key={type._id} value={type._id}>
@@ -76,8 +91,50 @@ function DetailProduct() {
           </div> */}
         </div>
       </div>
-      <Feedback/>
       <br/>
+      <Feedback feedback={feedback} />
+      <br/>
+      <div className="product-info-tabs">
+        <div className="header-feedback">
+          <h3> Product review ({feedback.length})</h3>
+          <div className="underline2"></div>
+        </div>
+        <div className="feedback-item">
+        {feedback.map((feedbacks) => {
+          return (
+            <FeedbackItem
+              key={feedbacks._id}
+              feedbacks={feedbacks}
+            />
+          );
+        })}
+        </div>
+        <br />
+        {/* <p>Your rating</p>
+        <p>
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+          <AiFillStar />
+        </p> */}
+        {/* <p>Your message</p>
+
+        <textarea
+          type="text"
+          name="content"
+          placeholder="comment your feedback"
+        />
+        <div className="detail-input">
+          <input type="text" name="name" id="name" placeholder="Name" />
+          <input type="text" name="email" id="email" placeholder="Your Email" />
+        </div>
+        <br />
+        <button type="button" className="btn-review">
+          SUBMIT REVIEW
+        </button> */}
+      </div>
+      <br />
       <div>
         <h2 className="h2">Sản Phẩm Liên Quan</h2>
         <div className="products">
