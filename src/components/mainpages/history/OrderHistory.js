@@ -38,7 +38,7 @@ function OrderHistory() {
           const res = await axios.get('/api/orders', {
             headers: { Authorization: token },
           });
-          //console.log(res.data)
+          console.log(res.data)
           setHistory(res.data);
         }
       };
@@ -81,7 +81,6 @@ function OrderHistory() {
       <LoadMore />
       {history.length === 0 && <Loading />}
     </div>
-    
   );
 }
 

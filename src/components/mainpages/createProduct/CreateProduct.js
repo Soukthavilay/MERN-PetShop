@@ -10,17 +10,17 @@ const initialState = {
   types: [
     {
       name: '120KG',
-      price: 18000,
+      price: 18,
       amount: 10,
     },
     {
       name: '180KG',
-      price: 19000,
+      price: 19,
       amount: 10,
     },
     {
       name: '190KG',
-      price: 20000,
+      price: 20,
       amount: 10,
     },
   ],

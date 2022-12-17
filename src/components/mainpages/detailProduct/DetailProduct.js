@@ -54,6 +54,7 @@ function DetailProduct() {
     setType(type2[0]);
   };
 
+
   return (
     <>
       <div className="detail">
@@ -64,9 +65,8 @@ function DetailProduct() {
             <h6>#id: {detailProduct._id}</h6>
           </div>
           <p>
-            {feedback.rating}
+            {feedback.length} reviews
           </p>
-          {/* <p>Đã Bán: {detailProduct.sold}</p> */}
           <div className="underline"></div>
           <br />
           <span>{type.price}Đ</span>
@@ -110,29 +110,6 @@ function DetailProduct() {
         })}
         </div>
         <br />
-        {/* <p>Your rating</p>
-        <p>
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-        </p> */}
-        {/* <p>Your message</p>
-
-        <textarea
-          type="text"
-          name="content"
-          placeholder="comment your feedback"
-        />
-        <div className="detail-input">
-          <input type="text" name="name" id="name" placeholder="Name" />
-          <input type="text" name="email" id="email" placeholder="Your Email" />
-        </div>
-        <br />
-        <button type="button" className="btn-review">
-          SUBMIT REVIEW
-        </button> */}
       </div>
       <br />
       <div>
