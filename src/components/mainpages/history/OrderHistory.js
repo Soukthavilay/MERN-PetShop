@@ -48,7 +48,7 @@ function OrderHistory() {
 
   return (
     <div className="history-page">
-      <h2>Lịch Sử</h2>
+      <h2>{isAdmin ? "All Order" : "My Order"}</h2>
 
       <h4>{history.length} ordered</h4>
 

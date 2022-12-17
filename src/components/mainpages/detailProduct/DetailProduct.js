@@ -11,14 +11,11 @@ function DetailProduct() {
   const params = useParams();
   const state = useContext(GlobalState);
   const [products] = state.productsAPI.products;
-  //const [token] = state.token;
-  //console.log(token);
-  //console.log(products)
+  const [categoriesName] = state.categoriesAPI.categories;
   const addCart = state.userAPI.addCart;
   const [detailProduct, setDetailProduct] = useState([]);
   const [type, setType] = useState();
   const [feedback, setFeedback] = useState([]);
-  console.log(feedback)
   useEffect(() => {
     if (params.id) {
       products.forEach((product) => {
@@ -32,7 +29,6 @@ function DetailProduct() {
 
   useEffect(() => {
     if (params.id) {
-      console.log(params.id);
       const getFeedback = async () => {
         try {
           const res = await axios.get(`/api/products/${params.id}`);
@@ -46,6 +42,7 @@ function DetailProduct() {
   }, [params.id]);
 
   if (detailProduct.length === 0) return null;
+
   const checktype = (event) => {
     const id = event.target.value;
     const types = detailProduct.types;
@@ -53,7 +50,6 @@ function DetailProduct() {
     console.log(type2);
     setType(type2[0]);
   };
-
 
   return (
     <>
@@ -64,9 +60,7 @@ function DetailProduct() {
             <h3>{detailProduct.title}</h3>
             <h6>#id: {detailProduct._id}</h6>
           </div>
-          <p>
-            {feedback.length} reviews
-          </p>
+          <p>{feedback.length} reviews</p>
           <div className="underline"></div>
           <br />
           <span>{type.price}Đ</span>
@@ -86,28 +80,23 @@ function DetailProduct() {
           >
             Add to cart
           </Link>
-          {/* <div>
-            <p>Categories : {detailProduct.category}</p>
-          </div> */}
+          <div>
+            <p>Categories : {}</p>
+          </div>
         </div>
       </div>
-      <br/>
+      <br />
       <Feedback feedback={feedback} />
-      <br/>
+      <br />
       <div className="product-info-tabs">
         <div className="header-feedback">
           <h3> Product review ({feedback.length})</h3>
           <div className="underline2"></div>
         </div>
         <div className="feedback-item">
-        {feedback.map((feedbacks) => {
-          return (
-            <FeedbackItem
-              key={feedbacks._id}
-              feedbacks={feedbacks}
-            />
-          );
-        })}
+          {feedback.map((feedbacks) => {
+            return <FeedbackItem key={feedbacks._id} feedbacks={feedbacks} />;
+          })}
         </div>
         <br />
       </div>
