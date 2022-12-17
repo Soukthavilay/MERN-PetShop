@@ -19,6 +19,7 @@ import { About } from './about/About';
 import { Contact } from './contact/Contact';
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
+import Comment from './processed/Comment'
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -29,6 +30,7 @@ function Pages() {
     <Switch>
       <Route path="/" exact component={Home}/>
       <Route path="/about" exact component={About} />
+      <Route path="/comment/:id" exact component={Comment} />
       <Route path="/contact" exact component={Contact} />
       <Route path="/products" exact component={Products} />
       <Route path="/detail/:id" exact component={DetailProduct} />

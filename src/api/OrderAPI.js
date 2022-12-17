@@ -8,6 +8,7 @@ function OrderAPI(token) {
   const [isLoading, setIsLoading] = useState(false);
   const [callback, setCallback] = useState(false);
   const [processed,setProcessed] = useState([]);
+  const [review,setReview]= useState([])
 
   useEffect(() => {
     const getOrder = async () => {
@@ -27,6 +28,7 @@ function OrderAPI(token) {
     order: [order, setOrder],
     callback: [callback, setCallback],
     processed:[processed,setProcessed],
+    reviews:[review,setReview],
   };
 }
 

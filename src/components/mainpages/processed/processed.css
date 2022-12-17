@@ -162,3 +162,7 @@ legend {
     rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
     rgb(0 0 0 / 9%) 0px -3px 5px;
 }
+.feedback-upload-img{
+  width: 200px;
+  height: 200px;
+}
