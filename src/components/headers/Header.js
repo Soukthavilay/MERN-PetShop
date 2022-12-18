@@ -121,6 +121,10 @@ function Header() {
         <li>
           <Link to="/contact">{'contact'}</Link>
         </li>
+        <li>
+          <Link to="/revenue">{'revenue'}</Link>
+        </li>
+
 
         {isAdmin && adminRouter()}
         {isLogged ? (

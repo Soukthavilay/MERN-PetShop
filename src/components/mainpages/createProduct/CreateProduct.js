@@ -7,24 +7,6 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const initialState = {
   title: '',
-  types: [
-    {
-      name: '120KG',
-      price: 18000,
-      amount: 10,
-    },
-    {
-      name: '180KG',
-      price: 19000,
-      amount: 10,
-    },
-    {
-      name: '190KG',
-      price: 20000,
-      amount: 10,
-    },
-  ],
-
   description:
     'Stock up on the perfect afternoon snack, lunchtime side or baking choice with a Three-Pound Bag of Honeycrisp Apples from Good & Gather™. Boasting the perfect blend of sweet and crisp flavors, these delicious Honeycrisp apples promise to hit the spot when you’re craving something fresh and tasty, and the crisp, juicy texture is sure to satisfy.',
   category: '',
@@ -35,6 +17,7 @@ function CreateProduct() {
   const state = useContext(GlobalState);
   console.log(state.productsAPI.products);
   const [product, setProduct] = useState(initialState);
+  const [types ,setTypes] = useState([]);
   const [categories] = state.categoriesAPI.categories;
   const [images, setImages] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -52,8 +35,14 @@ function CreateProduct() {
 
   const [val, setVal] = useState([]);
   const handleAdd = () => {
-    const abc = [...val, []];
-    setVal(abc);
+    // const abc = [...val, []];
+    // setVal(abc);
+    // try {
+    //   // const res = await axios.get(`api/products/${params.id}`);
+    //   setTypes(res.data.type)
+    // } catch (err) {
+    //   alert(err.response.data.msg);
+    // }
   };
   const handleChange = (value, i) => {};
   useEffect(() => {
@@ -65,6 +54,7 @@ function CreateProduct() {
           setImages(product.images);
         }
       });
+      
     } else {
       setOnEdit(false);
       setProduct(initialState);
@@ -75,18 +65,18 @@ function CreateProduct() {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin) return alert('Bạn Không Phải là admin');
+      if (!isAdmin) return alert('Bạn Không Phải là admin!');
       const file = e.target.files[0];
 
-      if (!file) return alert('Tệp không tồn tại.');
+      if (!file) return alert('Tệp không tồn tại!');
 
       if (file.size > 1024 * 1024)
         // 1mb
-        return alert('Size ảnh lớn quá . Hãy thử đổi ảnh khác');
+        return alert('Size ảnh lớn quá .Hãy thử đổi ảnh khác!');
 
       if (file.type !== 'image/jpeg' && file.type !== 'image/png')
         // 1mb
-        return alert('Tệp không đúng. Hãy kiểm tra lại ');
+        return alert('Tệp không đúng. Hãy kiểm tra lại!');
 
       let formData = new FormData();
       formData.append('file', file);
@@ -102,12 +92,13 @@ function CreateProduct() {
       setImages(res.data);
     } catch (err) {
       alert(err.response.data.msg);
+
     }
   };
 
   const handleDestroy = async () => {
     try {
-      if (!isAdmin) return alert('Bạn không phải là admin');
+      if (!isAdmin) return alert('Bạn không phải là admin!');
       setLoading(true);
       await axios.post(
         '/api/destroy',
@@ -125,14 +116,14 @@ function CreateProduct() {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setProduct({ ...product, [name]: value });
+    setProduct({ ...product, types, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin) return alert('Bạn không phải là admin');
-      if (!images) return alert('Hình ảnh chưa tải lên');
+      if (!isAdmin) return alert('Bạn không phải là admin!');
+      if (!images) return alert('Hình ảnh chưa tải lên!');
 
       if (onEdit) {
         await axios.put(
@@ -198,9 +189,10 @@ function CreateProduct() {
               name="types"
               id="types"
               // placeholder={JSON.stringify(product)}
+              placeholder='Weight'
               required
-              value={product.types[0].name}
-              onChange={handleChangeInput}
+              // value=""
+              // onChange={handleChangeInput}
             />
           </div>
           <div>
@@ -210,8 +202,8 @@ function CreateProduct() {
               id="price"
               placeholder="Price"
               required
-              value={product.types[0].price}
-              onChange={handleChangeInput}
+              // value=""
+              // onChange={handleChangeInput}
             />
           </div>
           <div>
@@ -221,8 +213,8 @@ function CreateProduct() {
               id="amount"
               placeholder="Amount"
               required
-              value={product.types[0].amount}
-              onChange={handleChangeInput}
+              // value=""
+              // onChange={handleChangeInput}
             />
           </div>
           <p id="output"></p>
@@ -263,7 +255,7 @@ function CreateProduct() {
         </div> */}
 
         <div className="row">
-          <label htmlFor="description">Mô tả Sản Phẩm</label>
+          <label htmlFor="description">Description</label>
           <textarea
             type="text"
             name="description"
@@ -276,13 +268,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="categories">Loại Sản Phẩm: </label>
+          <label htmlFor="categories">Choose category </label>
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-            <option value="">Hãy Chọn Loại Sản Phẩm</option>
+            <option value="" disabled selected>Hãy Chọn Loại Sản Phẩm</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
