@@ -6,13 +6,14 @@ import axios from 'axios';
 import Loading from '../utils/loading/Loading';
 import Star from '../detailProduct/Star';
 import {useHistory} from 'react-router-dom';
+import Rating from 'react-rating'
 
 const Comment = () => {
   const state = useContext(GlobalState);
   const params = useParams();
   const [product_id, setProduct_id] = useState();
   const [content,setContent] = useState('');
-  const [score,setScore] = useState(2);
+  const [score,setScore] = useState(0);
   const [review] = state.orderAPI.reviews;
   const [images, setImages] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -100,9 +101,9 @@ const Comment = () => {
   return (
     <div className="product-info-tabs">
       <p>Your rating</p>
-      <p>
-        <Star />
-      </p>
+      <Rating
+        onChange={(rate) => setScore(rate)}
+      />
       <p>Your message</p>
 
       <textarea
