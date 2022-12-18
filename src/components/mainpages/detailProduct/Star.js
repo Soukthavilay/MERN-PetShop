@@ -8,6 +8,7 @@ const Star = (rating) => {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  // console.log(rating)
 
   const handleClick = (value) => {
     setCurrentValue(value);

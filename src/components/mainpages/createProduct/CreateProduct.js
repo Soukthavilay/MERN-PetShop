@@ -10,17 +10,17 @@ const initialState = {
   types: [
     {
       name: '120KG',
-      price: 18,
+      price: 10,
       amount: 10,
     },
     {
       name: '180KG',
-      price: 19,
+      price: 20,
       amount: 10,
     },
     {
       name: '190KG',
-      price: 20,
+      price: 25,
       amount: 10,
     },
   ],
@@ -75,7 +75,7 @@ function CreateProduct() {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin) return alert('Bạn Không Phải là admin');
+      if (!isAdmin) return alert('you not admin');
       const file = e.target.files[0];
 
       if (!file) return alert('Tệp không tồn tại.');
@@ -107,7 +107,7 @@ function CreateProduct() {
 
   const handleDestroy = async () => {
     try {
-      if (!isAdmin) return alert('Bạn không phải là admin');
+      if (!isAdmin) return alert('you not admin');
       setLoading(true);
       await axios.post(
         '/api/destroy',
@@ -131,8 +131,8 @@ function CreateProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin) return alert('Bạn không phải là admin');
-      if (!images) return alert('Hình ảnh chưa tải lên');
+      if (!isAdmin) return alert('you not admin');
+      if (!images) return alert('image not upload');
 
       if (onEdit) {
         await axios.put(
@@ -263,7 +263,7 @@ function CreateProduct() {
         </div> */}
 
         <div className="row">
-          <label htmlFor="description">Mô tả Sản Phẩm</label>
+          <label htmlFor="description">Description</label>
           <textarea
             type="text"
             name="description"
@@ -276,13 +276,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="categories">Loại Sản Phẩm: </label>
+          <label htmlFor="categories">Categories: </label>
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-            <option value="">Hãy Chọn Loại Sản Phẩm</option>
+            <option value="">Please select category</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
@@ -291,7 +291,7 @@ function CreateProduct() {
           </select>
         </div>
 
-        <button type="submit">{onEdit ? 'Sửa' : 'Tạo Mới'}</button>
+        <button type="submit">{onEdit ? 'Edit' : 'Create'}</button>
       </form>
     </div>
   );

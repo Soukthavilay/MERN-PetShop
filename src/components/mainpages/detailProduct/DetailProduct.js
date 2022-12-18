@@ -16,6 +16,8 @@ function DetailProduct() {
   const [detailProduct, setDetailProduct] = useState([]);
   const [type, setType] = useState();
   const [feedback, setFeedback] = useState([]);
+  const [score,setScore] = useState([]); ;
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     if (params.id) {
       products.forEach((product) => {
@@ -26,6 +28,7 @@ function DetailProduct() {
       });
     }
   }, [params.id, products]);
+  
 
   useEffect(() => {
     if (params.id) {
@@ -41,6 +44,22 @@ function DetailProduct() {
     }
   }, [params.id]);
 
+  // useEffect(() => {
+  //     feedback.map(item=>{
+  //       console.log(item.rating)
+  //     })
+  //     setTotal(total);  
+  // }, []);
+  // var sum= 0;
+  // useEffect(() => {
+  //   const obj = feedback.forEach(item=>{
+  //     setScore(item.rating)
+  //   })
+  // },[]);
+  
+  
+  
+
   if (detailProduct.length === 0) return null;
 
   const checktype = (event) => {
@@ -50,7 +69,6 @@ function DetailProduct() {
     console.log(type2);
     setType(type2[0]);
   };
-
   return (
     <>
       <div className="detail">
