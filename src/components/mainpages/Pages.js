@@ -17,7 +17,7 @@ import { GlobalState } from '../../GlobalState';
 import { Home } from './home/Home';
 import { About } from './about/About';
 import { Contact } from './contact/Contact';
-import { Revenue } from './revenue/Revenue';
+import Revenue from "./revenue/Revenue";
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
 
@@ -68,8 +68,7 @@ function Pages() {
       <Route 
       path="/revenue" 
       exact 
-      component={ Revenue } />
-      {/* phải thêm isAdmin vào chỗ này nha Koh */}
+      component={isAdmin ? Revenue : NotFound} />
 
       <Route
         path="/history/:id"

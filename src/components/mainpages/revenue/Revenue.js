@@ -1,107 +1,127 @@
-import React from 'react';
+import React, { useState } from "react";
+import ChartRevenue from "../chartRevenue/ChartRevenue";
+import "./revenue.css";
+import { BsBarChart, BsCalendar4Week, BsDownload } from "react-icons/bs";
+import { ImFileText2 } from "react-icons/im";
+import { FiTrendingUp } from "react-icons/fi";
+import { MdOutlineArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
-export const Revenue = () => {
+function Revenue() {
     return (
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <div class="row">
-                            <div>
-                                <div class="card-box tilebox-one"><i class="icon-layers float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Orders</h6>
-                                    <h2 data-plugin="counterup">1,587</h2><span class="badge badge-custom">+11% </span><span class="text-muted">From previous period</span></div>
-                            </div>
-                            <div>
-                                <div class="card-box tilebox-one"><i class="icon-paypal float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Revenue</h6>
-                                    <h2  >$<span data-plugin="counterup">46,782</span></h2><span class="badge badge-danger">-29% </span><span class="text-muted">From previous period</span></div>
-                            </div>
-                            <div>
-                                <div class="card-box tilebox-one"><i class="icon-rocket float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Product Sold</h6>
-                                    <h2 data-plugin="counterup">1,890</h2><span class="badge badge-custom">+89% </span><span class="text-muted">Last year</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 >Experience</h4>
-                            <div  >
-                                <div  >
-                                    <h5 >Lead designer / Developer</h5>
-                                    <p>websitename.com</p>
-                                    <p><b>2010-2015</b></p>
-                                    <p class="text-muted font-13 mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="content-revenue">
+            <div class="container-revenue">
+                <div className="label-revenue">
+                    <button className="next-month"><MdOutlineArrowBackIosNew style={{ fontSize: "28px" }} /></button>
+                    <h2>December revenue</h2>
+                    <button className="next-month"><MdArrowForwardIos style={{ fontSize: "28px" }} /></button>
+                </div>
+                <div class="wrapper-element-revenue">
+                    <div class="element-revenue">
+                        <div class="card-block">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <h4 class="text-c-yellow">$30200</h4>
+                                    <h6 class="text-muted m-b-0">
+                                        All Earnings
+                                    </h6>
                                 </div>
-                                <div  >
-                                    <h5 class="text-custom">Senior Graphic Designer</h5>
-                                    <p class="mb-0">coderthemes.com</p>
-                                    <p><b>2007-2009</b></p>
-                                    <p class="text-muted font-13 mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <div class="col-3 text-right">
+                                    <BsBarChart style={{ fontSize: "28px" }} />
                                 </div>
                             </div>
                         </div>
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">My Projects</h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Project Name</th>
-                                            <th>Start Date</th>
-                                            <th>Due Date</th>
-                                            <th>Status</th>
-                                            <th>Assign</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Adminox Admin</td>
-                                            <td>01/01/2015</td>
-                                            <td>07/05/2015</td>
-                                            <td><span class="label label-info">Work in Progress</span></td>
-                                            <td>Coderthemes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Adminox Frontend</td>
-                                            <td>01/01/2015</td>
-                                            <td>07/05/2015</td>
-                                            <td><span class="label label-success">Pending</span></td>
-                                            <td>Coderthemes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Adminox Admin</td>
-                                            <td>01/01/2015</td>
-                                            <td>07/05/2015</td>
-                                            <td><span class="label label-pink">Done</span></td>
-                                            <td>Coderthemes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Adminox Frontend</td>
-                                            <td>01/01/2015</td>
-                                            <td>07/05/2015</td>
-                                            <td><span class="label label-purple">Work in Progress</span></td>
-                                            <td>Coderthemes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Adminox Admin</td>
-                                            <td>01/01/2015</td>
-                                            <td>07/05/2015</td>
-                                            <td><span class="label label-warning">Coming soon</span></td>
-                                            <td>Coderthemes</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="card-footer bg-c-yellow">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="text-white">% change</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <FiTrendingUp style={{ color: "white" }} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-revenue">
+                        <div class="card-block">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <h4 class="text-c-yellow">290+</h4>
+                                    <h6 class="text-muted m-b-0">
+                                        Sold products
+                                    </h6>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <ImFileText2 style={{ fontSize: "28px" }} />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-c-green">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="text-white m-b-0">% change</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <FiTrendingUp style={{ color: "white" }} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-revenue">
+                        <div class="card-block">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <h4 class="text-c-yellow">250</h4>
+                                    <h6 class="text-muted m-b-0">Orders</h6>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <BsCalendar4Week
+                                        style={{ fontSize: "28px" }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-c-pink">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="text-white m-b-0">% change</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <FiTrendingUp style={{ color: "white" }} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="element-revenue">
+                        <div class="card-block">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <h4 class="text-c-yellow">12</h4>
+                                    <h6 class="text-muted m-b-0">
+                                        New products
+                                    </h6>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <BsDownload style={{ fontSize: "28px" }} />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-c-blue">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="text-white m-b-0">% change</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <FiTrendingUp style={{ color: "white" }} />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <ChartRevenue />
+                </div>
             </div>
         </div>
-    )
-};
+    );
+}
+export default Revenue;
