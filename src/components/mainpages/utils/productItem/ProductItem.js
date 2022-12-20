@@ -32,7 +32,7 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
           <Link to={`/detail/${product._id}`}>{product.title}</Link>
         </h2>
         <p>{product.description}</p>
-        <div className="price">{product.types[0].price}Đ</div>
+        <div className="price">{product.types[0].price} $</div>
       </div>
 
       <BtnRender product={product} deleteProduct={deleteProduct} />

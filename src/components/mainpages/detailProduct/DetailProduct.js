@@ -81,7 +81,7 @@ function DetailProduct() {
           <p>{feedback.length} reviews</p>
           <div className="underline"></div>
           <br />
-          <span>{type.price}Đ</span>
+          <span>{type.price} $</span>
           <p>{detailProduct.description}</p>
           <label htmlFor="types">Choose a type:</label>
           <select onChange={checktype} name="type" id="type">
