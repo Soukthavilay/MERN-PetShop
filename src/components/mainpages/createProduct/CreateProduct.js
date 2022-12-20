@@ -7,8 +7,6 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const initialState = {
   title: '',
-<<<<<<< HEAD
-=======
   types: [
     {
       name: '120KG',
@@ -27,7 +25,6 @@ const initialState = {
     },
   ],
 
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
   description:
     'Stock up on the perfect afternoon snack, lunchtime side or baking choice with a Three-Pound Bag of Honeycrisp Apples from Good & Gather™. Boasting the perfect blend of sweet and crisp flavors, these delicious Honeycrisp apples promise to hit the spot when you’re craving something fresh and tasty, and the crisp, juicy texture is sure to satisfy.',
   category: '',
@@ -86,11 +83,7 @@ function CreateProduct() {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      if (!isAdmin) return alert('Bạn Không Phải là admin!');
-=======
       if (!isAdmin) return alert('you not admin');
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
       const file = e.target.files[0];
 
       if (!file) return alert('Tệp không tồn tại!');
@@ -123,11 +116,7 @@ function CreateProduct() {
 
   const handleDestroy = async () => {
     try {
-<<<<<<< HEAD
-      if (!isAdmin) return alert('Bạn không phải là admin!');
-=======
       if (!isAdmin) return alert('you not admin');
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
       setLoading(true);
       await axios.post(
         '/api/destroy',
@@ -151,13 +140,8 @@ function CreateProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      if (!isAdmin) return alert('Bạn không phải là admin!');
-      if (!images) return alert('Hình ảnh chưa tải lên!');
-=======
       if (!isAdmin) return alert('you not admin');
       if (!images) return alert('image not upload');
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
 
       if (onEdit) {
         await axios.put(
@@ -302,21 +286,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-<<<<<<< HEAD
-          <label htmlFor="categories">Choose category </label>
-=======
           <label htmlFor="categories">Categories: </label>
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-<<<<<<< HEAD
-            <option value="" disabled selected>Hãy Chọn Loại Sản Phẩm</option>
-=======
             <option value="">Please select category</option>
->>>>>>> a3efe0a7f58bc84553540d147701a736c1a1f332
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
