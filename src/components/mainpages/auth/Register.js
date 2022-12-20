@@ -28,15 +28,20 @@ function Register() {
       alert(err.response.data.msg);
     }
   };
-
+  const style = {
+    marginRight: '10px',
+    color:{
+      color: 'rgba(255,255,255)'
+    }
+  }
   return (
     <div className="login-page">
       <form onSubmit={registerSubmit}>
-        <h2>Đăng Ký</h2>
+        <h2>Register</h2>
         <br />
         <br />
         <p className="text-email">
-          Tên
+          First name & Last name
           <TiStarburst color="red" fontSize="7pt" />
         </p>
         <input
@@ -60,7 +65,7 @@ function Register() {
         />
         <br/>
         <p className="text-email">
-          Mật Khẩu
+          Password
           <TiStarburst color="red" fontSize="7pt" />
         </p>
         <input
@@ -73,9 +78,14 @@ function Register() {
         />
 
         <div className="row">
-          <button type="submit"><MdLogin/> Đăng Ký</button>
-          <Link to="/login">Đăng Nhập</Link>
+          <button type="submit">Register</button>
+          <Link to="/login">Login</Link>
         </div>
+        <hr/>
+        <img style={style} src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="ig" width="30" height="30" />
+        <img style={style} src="https://cdn-icons-png.flaticon.com/512/3670/3670032.png" alt="ig" width="30" height="30" />
+        <img  style={style} src="https://cdn-icons-png.flaticon.com/512/888/888853.png" alt="ig" width="30" height="30" />
+        <img style={style} src="https://cdn-icons-png.flaticon.com/512/2504/2504839.png" alt="ig" width="30" height="30" />
       </form>
     </div>
   );

@@ -20,6 +20,7 @@ import { Contact } from './contact/Contact';
 import Revenue from "./revenue/Revenue";
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
+import Comment from './processed/Comment'
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -30,10 +31,11 @@ function Pages() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/about" exact component={About} />
+      <Route path="/comment/:id" exact component={Comment} />
       <Route path="/contact" exact component={Contact} />
       <Route path="/products" exact component={Products} />
       <Route path="/detail/:id" exact component={DetailProduct} />
-      <Route path="/processed" exact component={Processed} />
+      <Route path="/processed" exact component={isLogged ? Processed : NotFound} />
 
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route
@@ -77,7 +79,7 @@ function Pages() {
       />
 
       <Route path="/cart" exact component={Cart} />
-      <Route path="/checkout" exact component={Checkout} />
+      <Route path="/checkout" exact component={isLogged ? Checkout : NotFound} />
 
       <Route path="*" exact component={NotFound} />
     </Switch>

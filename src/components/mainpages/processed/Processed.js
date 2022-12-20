@@ -7,6 +7,8 @@ const Processed = () => {
   const state = useContext(GlobalState);
   //console.log(state)
   const [process, setProcess] = state.orderAPI.processed;
+  const [token] = state.token;
+  console.log(token);
   console.log(process);
   const history = useHistory();
   const orderId = process._id;
@@ -15,14 +17,19 @@ const Processed = () => {
     console.log('id = ' + id);
     const order_id = id;
     //paypal
-    const res = await axios.post(
-      '/api/cart/checkout',
-      { order_id },
-    );
-      console.log(res.data.url)
-      window.open(res.data.url, "_blank");
-    //alert('Bạn đã đặt hàng thành công.');
-    history.push('/history');
+    if (token) {
+      const res = await axios.post(
+        '/api/cart/checkout',
+        { order_id },
+        {
+          headers: { Authorization: token },
+        }
+      );
+      console.log(res.data.url);
+      window.open(res.data.url, '_blank');
+      //alert('Bạn đã đặt hàng thành công.');
+      history.push('/history');
+    }
   };
   return (
     <>
@@ -83,7 +90,10 @@ const Processed = () => {
               </table>
             </div>
             <div className="btn-processed">
-              <button className="button button--full" onClick={() => tranSuccess(orderId)}>
+              <button
+                className="button button--full"
+                onClick={() => tranSuccess(orderId)}
+              >
                 <svg class="icon">
                   <use href="#icon-shopping-bag" />
                 </svg>
