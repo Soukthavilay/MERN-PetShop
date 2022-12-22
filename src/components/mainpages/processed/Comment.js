@@ -96,7 +96,7 @@ const Comment = () => {
       );
       console.log(result)
       alert('Thank you for your feedback !')
-      history.push('/');
+      history.push(`/detail/${product_id}`);
   }
   return (
     <div className="product-info-tabs">

@@ -32,6 +32,15 @@ const Checkout = () => {
     const { name, value } = e.target;
     setOrder({ ...order, [name]: value });
   };
+  const addToCart = async (cart) => {
+    await axios.patch(
+      '/user/addcart',
+      { cart },
+      {
+        headers: { Authorization: token },
+      }
+    );
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const rs = [];
@@ -62,6 +71,8 @@ const Checkout = () => {
     );
     setProcess(orders.data.order)
     //alert('Bạn đã đặt hàng thành công.');
+    setCart([]);
+    addToCart([]);
     history.push('/processed');
   };
   return (
