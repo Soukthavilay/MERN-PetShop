@@ -1,0 +1,11 @@
+.container-chart-renevue {
+    margin-top: 50px;
+}
+
+.chart-line {
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

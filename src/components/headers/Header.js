@@ -41,7 +41,7 @@ function Header() {
                     <Link to="/category">Create Category</Link>
                   </li>
                   <li>
-                    <Link to="/type">Create Type</Link>
+                    <Link to="/revenue">Revenue</Link>
                   </li>
                 </ul>
               </div>
@@ -121,7 +121,7 @@ function Header() {
         <li>
           <Link to="/contact">{'contact'}</Link>
         </li>
-
+        
         {isAdmin && adminRouter()}
         {isLogged ? (
           loggedRouter()

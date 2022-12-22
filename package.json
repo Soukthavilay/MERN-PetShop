@@ -13,7 +13,8 @@
     "react-paypal-express-checkout": "^1.0.5",
     "react-rating": "^2.0.5",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "recharts": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

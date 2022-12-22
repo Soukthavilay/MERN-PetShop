@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GlobalState } from '../../../GlobalState';
 import Loading from '../utils/loading/Loading';
 import { useHistory, useParams } from 'react-router-dom';
-// import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const initialState = {
   title: '',
@@ -366,7 +366,14 @@ function CreateProduct() {
               {types.map((artist) => (
                 <li key={artist.id}>
                   name :{artist.name} , price: {artist.price} , amount:
-                  {artist.amount} <span onClick={handleDestroy}>X</span>
+                  {artist.amount}{' '}
+                  <button
+                    onClick={() => {
+                      setTypes(types.filter((a) => a.id !== artist.id));
+                    }}
+                  >
+                    <AiOutlineCloseCircle/>
+                  </button>
                 </li>
               ))}
             </ul>
