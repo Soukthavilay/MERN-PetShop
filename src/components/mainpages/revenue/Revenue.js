@@ -18,7 +18,7 @@ function Revenue() {
                 <div class="wrapper-element-revenue">
                     <div class="element-revenue">
                         <div class="card-block">
-                            <div class="row align-items-center">
+                            <div class="rowr align-items-center">
                                 <div class="col-9">
                                     <h4 class="text-c-yellow">$30200</h4>
                                     <h6 class="text-muted m-b-0">
@@ -31,7 +31,7 @@ function Revenue() {
                             </div>
                         </div>
                         <div class="card-footer bg-c-yellow">
-                            <div class="row">
+                            <div class="rowr">
                                 <div class="col-9">
                                     <p class="text-white">% change</p>
                                 </div>
@@ -43,7 +43,7 @@ function Revenue() {
                     </div>
                     <div class="element-revenue">
                         <div class="card-block">
-                            <div class="row align-items-center">
+                            <div class="rowr align-items-center">
                                 <div class="col-9">
                                     <h4 class="text-c-yellow">290+</h4>
                                     <h6 class="text-muted m-b-0">
@@ -56,7 +56,7 @@ function Revenue() {
                             </div>
                         </div>
                         <div class="card-footer bg-c-green">
-                            <div class="row">
+                            <div class="rowr">
                                 <div class="col-9">
                                     <p class="text-white m-b-0">% change</p>
                                 </div>
@@ -68,7 +68,7 @@ function Revenue() {
                     </div>
                     <div class="element-revenue">
                         <div class="card-block">
-                            <div class="row align-items-center">
+                            <div class="rowr align-items-center">
                                 <div class="col-9">
                                     <h4 class="text-c-yellow">250</h4>
                                     <h6 class="text-muted m-b-0">Orders</h6>
@@ -81,7 +81,7 @@ function Revenue() {
                             </div>
                         </div>
                         <div class="card-footer bg-c-pink">
-                            <div class="row">
+                            <div class="rowr">
                                 <div class="col-9">
                                     <p class="text-white m-b-0">% change</p>
                                 </div>
@@ -93,7 +93,7 @@ function Revenue() {
                     </div>
                     <div class="element-revenue">
                         <div class="card-block">
-                            <div class="row align-items-center">
+                            <div class="rowr align-items-center">
                                 <div class="col-9">
                                     <h4 class="text-c-yellow">12</h4>
                                     <h6 class="text-muted m-b-0">
@@ -106,7 +106,7 @@ function Revenue() {
                             </div>
                         </div>
                         <div class="card-footer bg-c-blue">
-                            <div class="row">
+                            <div class="rowr">
                                 <div class="col-9">
                                     <p class="text-white m-b-0">% change</p>
                                 </div>
