@@ -17,6 +17,7 @@ import { GlobalState } from '../../GlobalState';
 import { Home } from './home/Home';
 import { About } from './about/About';
 import { Contact } from './contact/Contact';
+import Revenue from "./revenue/Revenue";
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
 import Comment from './processed/Comment'
@@ -28,7 +29,7 @@ function Pages() {
 
   return (
     <Switch>
-      <Route path="/" exact component={Home}/>
+      <Route path="/" exact component={Home} />
       <Route path="/about" exact component={About} />
       <Route path="/comment/:id" exact component={Comment} />
       <Route path="/contact" exact component={Contact} />
@@ -66,6 +67,11 @@ function Pages() {
         exact
         component={isLogged ? OrderHistory : NotFound}
       />
+      <Route 
+      path="/revenue" 
+      exact 
+      component={isAdmin ? Revenue : NotFound} />
+
       <Route
         path="/history/:id"
         exact
