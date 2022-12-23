@@ -120,7 +120,7 @@ function DetailProduct() {
       </div>
       <br />
       <div>
-        <h2 className="h2">Sản Phẩm Liên Quan</h2>
+        <h2 className="h2">Related Products</h2>
         <div className="products">
           {products.map((product) => {
             return product.category === detailProduct.category ? (
