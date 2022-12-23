@@ -8,6 +8,7 @@ const Processed = () => {
   //console.log(state)
   const [process, setProcess] = state.orderAPI.processed;
   const [token] = state.token;
+
   console.log(token);
   console.log(process);
   const history = useHistory();

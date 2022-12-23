@@ -15,6 +15,7 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
       }
     });
   }, []);
+  // console.log(product)
   return (
     <div className="product_card">
       {isAdmin && (
