@@ -105,7 +105,7 @@ const Checkout = () => {
               value={order.address}
               onChange={handleChangeInput}
               name="address"
-              placeholder="street"
+              placeholder="example:!!  Robert Robertson,  1234 NW Bobcat Lane,  St. Robert "
             />
             <label>Phone Number</label>
             <input
@@ -115,7 +115,7 @@ const Checkout = () => {
               value={order.phone}
               onChange={handleChangeInput}
               name="phone"
-              placeholder="09283***"
+              placeholder="+84 065584-5678."
             />
           </div>
           <button type="submit" className="btn_check">

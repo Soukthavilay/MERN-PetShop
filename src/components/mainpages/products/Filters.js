@@ -8,7 +8,7 @@ function Filters() {
   const [category, setCategory] = state.productsAPI.category;
   const [sort, setSort] = state.productsAPI.sort;
   const [search, setSearch] = state.productsAPI.search;
-
+  console.log(search)
   const handleCategory = (e) => {
     setCategory(e.target.value);
     setSearch('');
@@ -31,18 +31,18 @@ function Filters() {
       <input
         type="text"
         value={search}
-        placeholder="Tìm Kiếm Sản Phẩm !"
+        placeholder="Search product here"
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
       />
 
       <div className="row sort">
         {/* <span>Xếp theo: </span> */}
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
-          <option value="">Mới Nhất</option>
-          <option value="sort=oldest">Cũ Nhất</option>
-          <option value="sort=-sold">Bán Chạy Nhất</option>
-          <option value="sort=-price">Giá: Cao-Tháp</option>
-          <option value="sort=price">Giá: Thấp-Cao</option>
+          <option value="">New product</option>
+          <option value="sort=oldest">Old product</option>
+          <option value="sort=-sold">Hot product</option>
+          <option value="sort=-price">Price: expensive-cheap</option>
+          <option value="sort=price">price: cheap-expensive</option>
         </select>
       </div>
     </div>
