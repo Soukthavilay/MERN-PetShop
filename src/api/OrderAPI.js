@@ -13,7 +13,7 @@ function OrderAPI(token) {
   useEffect(() => {
     const getOrder = async () => {
       try {
-        const res = await axios.get('/api/orders');
+        const res = await axios.get('https://petshop-bn3rzeehqq-uc.a.run.app/api/orders');
         setOrder(res.data);
       } catch (err) {
         alert(err.response.data.msg);

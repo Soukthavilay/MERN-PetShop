@@ -12,7 +12,7 @@ function UserAPI(token) {
     if (token) {
       const getUser = async () => {
         try {
-          const res = await axios.get('/user/infor', {
+          const res = await axios.get('https://petshop-bn3rzeehqq-uc.a.run.app/user/infor', {
             headers: { Authorization: token },
           });
           setDetail(res.data)

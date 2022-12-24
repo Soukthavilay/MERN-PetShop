@@ -5,7 +5,7 @@ function TypeApi() {
   const [types, setTypes] = useState([]);
 
   const getTypes = async () => {
-    const res = await axios.get('/api/type');
+    const res = await axios.get('https://petshop-bn3rzeehqq-uc.a.run.app/api/type');
     setTypes(res.data);
   };
   useEffect(() => {
