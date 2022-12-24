@@ -33,6 +33,7 @@ const Feedback = (feedback) => {
           />
            average based on {feedbacks.length} reviews.
         </p>
+        {/* commnet */}
         <hr style={{ border: '3px solid #f1f1f1' }} />
       </div>
       <div className="row-feedback padding-feedback">
