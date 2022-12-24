@@ -132,17 +132,6 @@ function Header() {
             </Link>
           </li>
         )}
-
-        <li>
-          <Link to="#">
-            <BiSearchAlt />
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <AiOutlineHeart />
-          </Link>
-        </li>
         <li onClick={() => setMenu(!menu)}>
           <img src={Close} alt="" width="30" className="menu" />
         </li>

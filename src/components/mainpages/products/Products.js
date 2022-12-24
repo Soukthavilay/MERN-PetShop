@@ -5,6 +5,7 @@ import Loading from '../utils/loading/Loading';
 import axios from 'axios';
 import Filters from './Filters';
 import LoadMore from './LoadMore';
+import {Link} from 'react-router-dom'
 
 function Products() {
   const state = useContext(GlobalState);
@@ -69,6 +70,15 @@ function Products() {
   return (
     <>
       <Filters />
+      <div className="header-information">
+          <p className="header-label">Shop</p>
+          <div className="header-direction">
+            <Link to="/">Home /</Link>
+            <Link to="/products">Shop</Link>
+          </div>
+        </div>
+
+
 
       {isAdmin && (
         <div className="delete-all">
@@ -77,7 +87,7 @@ function Products() {
           <button onClick={deleteAll}>Xóa Hết</button>
         </div>
       )}
-
+      
       <div className="products">
         {products.map((product) => {
           return (
