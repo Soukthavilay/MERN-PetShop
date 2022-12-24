@@ -29,13 +29,13 @@ function OrderHistory() {
     if (token) {
       const getHistory = async () => {
         if (isAdmin) {
-          const res = await axios.get(`/api/orders/admin?limit=${page * 9}`, {
+          const res = await axios.get(`https://petshop-bn3rzeehqq-uc.a.run.app/api/orders/admin?limit=${page * 9}`, {
             headers: { Authorization: token },
           });
           setHistory(res.data);
           console.log(res.data);
         } else {
-          const res = await axios.get('/api/orders', {
+          const res = await axios.get('https://petshop-bn3rzeehqq-uc.a.run.app/api/orders', {
             headers: { Authorization: token },
           });
           console.log(res.data);

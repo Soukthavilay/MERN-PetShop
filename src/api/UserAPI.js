@@ -42,7 +42,7 @@ function UserAPI(token) {
       setCart([...cart, { ...newProduct,quantity: 1 }]);
 
       await axios.patch(
-        '/user/addcart',
+        'https://petshop-bn3rzeehqq-uc.a.run.app/user/addcart',
         { cart: [...cart, { ...newProduct, quantity: 1 }] },
         {
           headers: { Authorization: token },

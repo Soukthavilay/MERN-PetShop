@@ -2,8 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 import ProductsAPI from './api/ProductsAPI';
 import UserAPI from './api/UserAPI';
 import CategoriesAPI from './api/CategoriesAPI';
-import TypeApi from './api/TypeAPI';
-import OrderApi from './api/OrderAPI'
+// import TypeApi from './api/TypeAPI';
+// import OrderApi from './api/OrderAPI'
 
 import axios from 'axios';
 
@@ -34,8 +34,8 @@ export const DataProvider = ({ children }) => {
     productsAPI: ProductsAPI(),
     userAPI: UserAPI(token),
     categoriesAPI: CategoriesAPI(),
-    typesAPI: TypeApi(),
-    orderAPI:OrderApi(),
+    // typesAPI: TypeApi(),
+    // orderAPI:OrderApi(),
   };
 
   return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;

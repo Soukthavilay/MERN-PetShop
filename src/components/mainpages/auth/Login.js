@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault();
     try {
       
-      await axios.post('/user/login', { ...user });
+      await axios.post('https://petshop-bn3rzeehqq-uc.a.run.app/user/login', { ...user });
       
       localStorage.setItem('firstLogin', true);
       

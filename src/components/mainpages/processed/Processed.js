@@ -20,7 +20,7 @@ const Processed = () => {
     //paypal
     if (token) {
       const res = await axios.post(
-        '/api/cart/checkout',
+        'https://petshop-bn3rzeehqq-uc.a.run.app/api/cart/checkout',
         { order_id },
         {
           headers: { Authorization: token },

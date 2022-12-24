@@ -28,7 +28,7 @@ function Cart() {
 
   const addToCart = async (cart) => {
     await axios.patch(
-      '/user/addcart',
+      'https://petshop-bn3rzeehqq-uc.a.run.app/user/addcart',
       { cart },
       {
         headers: { Authorization: token },
@@ -92,7 +92,7 @@ function Cart() {
   const Checkout = async (e) => {
     e.preventDefault();
     await axios.get(
-      '/api/orders/checkout',
+      'https://petshop-bn3rzeehqq-uc.a.run.app/api/orders/checkout',
       { cart },
       {
         headers: { Authorization: token },
