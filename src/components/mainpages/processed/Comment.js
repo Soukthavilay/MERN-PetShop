@@ -43,7 +43,7 @@ const Comment = () => {
       formData.append('file', file);
 
       setLoading(true);
-      const res = await axios.post('https://petshop-bn3rzeehqq-uc.a.run.app/api/upload', formData, {
+      const res = await axios.post('/api/upload', formData, {
         headers: {
           'content-type': 'multipart/form-data',
           Authorization: token,
@@ -63,7 +63,7 @@ const Comment = () => {
     try {
       setLoading(true);
       await axios.post(
-        'https://petshop-bn3rzeehqq-uc.a.run.app/api/destroy',
+        '/api/destroy',
         { public_id: images.public_id },
         {
           headers: { Authorization: token },
@@ -88,7 +88,7 @@ const Comment = () => {
     }
     console.log(result)
     await axios.post(
-        'https://petshop-bn3rzeehqq-uc.a.run.app/api/feedback/create',
+        '/api/feedback/create',
         { ...result },
         {
           headers: { Authorization: token },

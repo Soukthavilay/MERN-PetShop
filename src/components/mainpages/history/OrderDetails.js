@@ -30,7 +30,7 @@ function OrderDetails() {
   //const product_id = orderDetails.listOrderItems[0].product_id;
   //console.log(product_id)
   const product = orderDetails.listOrderItems;
-  console.log(review);
+  console.log(product);
   return (
     <div className="history-page">
       {isAdmin ? (

@@ -20,7 +20,7 @@ const Processed = () => {
     //paypal
     if (token) {
       const res = await axios.post(
-        'https://petshop-bn3rzeehqq-uc.a.run.app/api/cart/checkout',
+        '/api/cart/checkout',
         { order_id },
         {
           headers: { Authorization: token },
@@ -57,13 +57,13 @@ const Processed = () => {
 
               <div className="form__radios">
                 <div className="form__radio">
-                  <label for="visa">
-                    <svg class="icon">
+                  <label htmlFor="visa">
+                    <svg className="icon">
                       <use href="#icon-visa" />
                     </svg>
                     Paypal
                   </label>
-                  <input checked id="visa" name="payment-method" type="radio" />
+                  <input defaultChecked id="visa" name="payment-method" type="radio" />
                 </div>
               </div>
             </fieldset>
@@ -95,7 +95,7 @@ const Processed = () => {
                 className="button button--full"
                 onClick={() => tranSuccess(orderId)}
               >
-                <svg class="icon">
+                <svg className="icon">
                   <use href="#icon-shopping-bag" />
                 </svg>
                 Buy Now

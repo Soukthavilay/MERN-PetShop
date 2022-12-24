@@ -19,7 +19,7 @@ function Register() {
   const registerSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://petshop-bn3rzeehqq-uc.a.run.app/user/register', { ...user });
+      await axios.post('/user/register', { ...user });
 
       localStorage.setItem('firstLogin', true);
 

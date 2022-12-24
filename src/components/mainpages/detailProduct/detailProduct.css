@@ -131,17 +131,17 @@
 .bar-5 {
   width: 60%;
   height: 18px;
-  background-color: #04aa6d;
+  background-color: #ff9800;
 }
 .bar-4 {
   width: 30%;
   height: 18px;
-  background-color: #2196f3;
+  background-color: #ff9800;
 }
 .bar-3 {
   width: 10%;
   height: 18px;
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 .bar-2 {
   width: 4%;
@@ -151,7 +151,7 @@
 .bar-1 {
   width: 15%;
   height: 18px;
-  background-color: #f44336;
+  background-color: #ff9800;
 }
 @media (max-width: 400px) {
   .side,

@@ -34,7 +34,7 @@ function Products() {
           headers: { Authorization: token },
         }
       );
-      const deleteProduct = axios.delete(`https://petshop-bn3rzeehqq-uc.a.run.app/api/products/${id}`, {
+      const deleteProduct = axios.delete(`/api/products/${id}`, {
         headers: { Authorization: token },
       });
 

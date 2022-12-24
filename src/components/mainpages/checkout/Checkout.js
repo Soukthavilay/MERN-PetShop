@@ -34,7 +34,7 @@ const Checkout = () => {
   };
   const addToCart = async (cart) => {
     await axios.patch(
-      'https://petshop-bn3rzeehqq-uc.a.run.app/user/addcart',
+      '/user/addcart',
       { cart },
       {
         headers: { Authorization: token },
@@ -63,7 +63,7 @@ const Checkout = () => {
     };
     console.log(re);
     const orders = await axios.post(
-      'https://petshop-bn3rzeehqq-uc.a.run.app/api/orders',
+      '/api/orders',
       { ...re },
       {
         headers: { Authorization: token },

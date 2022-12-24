@@ -36,7 +36,7 @@ function BtnRender({ product, deleteProduct }) {
       ) : (
         <>
           <Link to="" id="btn_buy" onClick={() => Check()}>
-            <AiOutlineShoppingCart />
+            <AiOutlineShoppingCart style={{ display: 'none'}} />
           </Link>
           <Link id="btn_view" to={`/detail/${product._id}`}>
             <AiOutlineEye style={{ display: 'none'}}/>

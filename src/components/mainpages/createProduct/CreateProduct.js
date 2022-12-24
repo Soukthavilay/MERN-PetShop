@@ -78,7 +78,7 @@ function CreateProduct() {
       formData.append('file', file);
 
       setLoading(true);
-      const res = await axios.post('https://petshop-bn3rzeehqq-uc.a.run.app/api/upload', formData, {
+      const res = await axios.post('/api/upload', formData, {
         headers: {
           'content-type': 'multipart/form-data',
           Authorization: token,
@@ -96,7 +96,7 @@ function CreateProduct() {
       if (!isAdmin) return alert('you not admin');
       setLoading(true);
       await axios.post(
-        'https://petshop-bn3rzeehqq-uc.a.run.app/api/destroy',
+        '/api/destroy',
         { public_id: images.public_id },
         {
           headers: { Authorization: token },
@@ -134,8 +134,6 @@ function CreateProduct() {
         description: product.description,
         category: product.category,
         types: re,
-        checked: false,
-        sold: 0,
       };
 
       if (!isAdmin) return alert('you not admin');
@@ -143,7 +141,7 @@ function CreateProduct() {
 
       if (onEdit) {
         await axios.put(
-          `https://petshop-bn3rzeehqq-uc.a.run.app/api/products/${product._id}`,
+          `/api/products/${product._id}`,
           { ...rs, images },
           {
             headers: { Authorization: token },
@@ -152,7 +150,7 @@ function CreateProduct() {
       } else {
         console.log(rs);
         await axios.post(
-          'https://petshop-bn3rzeehqq-uc.a.run.app/api/products',
+          '/api/products',
           { ...rs, images },
           {
             headers: { Authorization: token },

@@ -12,7 +12,7 @@ function UserAPI(token) {
     if (token) {
       const getUser = async () => {
         try {
-          const res = await axios.get('https://petshop-bn3rzeehqq-uc.a.run.app/user/infor', {
+          const res = await axios.get('/user/infor', {
             headers: { Authorization: token },
           });
           setDetail(res.data)
@@ -42,7 +42,7 @@ function UserAPI(token) {
       setCart([...cart, { ...newProduct,quantity: 1 }]);
 
       await axios.patch(
-        'https://petshop-bn3rzeehqq-uc.a.run.app/user/addcart',
+        '/user/addcart',
         { cart: [...cart, { ...newProduct, quantity: 1 }] },
         {
           headers: { Authorization: token },

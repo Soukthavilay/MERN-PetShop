@@ -45,8 +45,8 @@
   justify-content: space-between;
 }
 .row_btn svg {
-  width: 400px !important;
-  height: 54px;
+  width: 339px !important;
+  height: 32px;
 }
 .row_btn a {
   width: 84px;
@@ -60,16 +60,16 @@
 }
 #btn_buy {
   position: relative;
-  bottom: 42px;
-  left: 189px;
+  /* bottom: 42px; */
+  /* left: 189px; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 #btn_view {
   border-radius: 26px;
-  position: relative;
-  bottom: 487px;
+  /* position: relative; */
+  /* bottom: 487px; */
   display: flex;
   justify-content: center;
   align-items: center;

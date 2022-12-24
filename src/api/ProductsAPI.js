@@ -13,7 +13,7 @@ function ProductsAPI() {
   useEffect(() => {
     const getProducts = async () => {
       const res = await axios.get(
-        `https://petshop-bn3rzeehqq-uc.a.run.app/api/products?limit=${
+        `/api/products?limit=${
           page * 9
         }&${category}&${sort}&title[regex]=${search}`
       );
