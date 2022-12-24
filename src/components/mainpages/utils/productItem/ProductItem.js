@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import BtnRender from './BtnRender';
 import { Link } from 'react-router-dom';
 import { GlobalState } from '../../../../GlobalState';
+
+
 function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
   const state = useContext(GlobalState);
   const [categoriesName] = state.categoriesAPI.categories;

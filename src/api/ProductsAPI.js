@@ -13,7 +13,7 @@ function ProductsAPI() {
   useEffect(() => {
     const getProducts = async () => {
       const res = await axios.get(
-        `http://pet.kreazy.me/api/products?limit=${
+        `/api/products?limit=${
           page * 9
         }&${category}&${sort}&title[regex]=${search}`
       );
