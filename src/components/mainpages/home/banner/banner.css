@@ -1,5 +1,5 @@
 * {
-  font-family: 'Itim', cursive !important;
+  /* font-family: 'Itim', cursive !important; */
   /* overflow-x: hidden; */
 }
 
@@ -36,7 +36,7 @@
 .banner-left .banner-paragraph {
   width: 90%;
   text-align: justify;
-  color: #605C78;
+  color: #605c78;
   font-size: 24px;
   font-weight: 300;
   line-height: 36px;
@@ -46,22 +46,22 @@
   cursor: pointer;
 }
 
-.banner-left>p h1 {
+.banner-left > p h1 {
   display: block;
 }
 
-.banner-left p>h1 {
+.banner-left p > h1 {
   font-size: 90px;
   color: #000;
   opacity: 88%;
 }
 
-.banner-left>p {
+.banner-left > p {
   font-size: 25px;
   color: #fff;
 }
 
-.banner-number-container{
+.banner-number-container {
   display: flex;
   justify-content: flex-start;
 }
@@ -90,7 +90,7 @@
 }
 
 .small-text {
-  color: #605C78;
+  color: #605c78;
   font-size: 16px;
   text-transform: capitalize;
   line-height: 26px;
@@ -102,7 +102,7 @@
   width: 45%;
 }
 
-.banner-btn>button {
+.banner-btn > button {
   background-color: #524eb7;
   border-radius: 40px;
   font-weight: 600;
@@ -126,7 +126,7 @@
   left: 376px;
 }
 
-.widget>p {
+.widget > p {
   position: relative;
   justify-content: center;
   align-items: center;
@@ -146,13 +146,13 @@
   left: 134px;
 }
 
-.motion-effect>img {
+.motion-effect > img {
   width: 60px;
   height: 60px;
   border-radius: 50px;
 }
 
-.motion-effect>p {
+.motion-effect > p {
   right: 0px;
   margin-bottom: 0px;
   left: 96px;
@@ -162,15 +162,16 @@
   margin-top: -59px;
 }
 
-.motion-effect>h3 {
+.motion-effect > h3 {
   top: 86px;
   position: relative;
   text-align: center;
 }
 
-.banner-btn {}
+.banner-btn {
+}
 
-.banner-btn>h3 {
+.banner-btn > h3 {
   position: relative;
   left: 270px;
   bottom: 39px;
