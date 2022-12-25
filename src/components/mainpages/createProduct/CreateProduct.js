@@ -38,15 +38,16 @@ function CreateProduct() {
   const [onEdit, setOnEdit] = useState(false);
   const [callback, setCallback] = state.productsAPI.callback;
   // console.log(JSON.stringify(product.types[0].name))
-
-  console.log(types);
-  console.log(product);
+  const [edit,setEdit] = useState();
+ 
   useEffect(() => {}, []);
   useEffect(() => {
     if (param.id) {
+      console.log(products);
       setOnEdit(true);
       products.forEach((product) => {
         if (product._id === param.id) {
+          console.log(product);
           setProduct(product);
           setImages(product.images);
         }
@@ -231,6 +232,7 @@ function CreateProduct() {
                 onChange={(e) => setMount(e.target.value)}
               />
             </div>
+            
             <ul>
               {product.types.map((element) => (
                 <li key={element._id}>
