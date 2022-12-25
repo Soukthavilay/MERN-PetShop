@@ -1,7 +1,7 @@
 .detail {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   /* padding: 50px; */
   font-size: 130%;
@@ -37,14 +37,14 @@
 }
 .box-detail .cart {
   background: rgba(63, 60, 154, 0.9);
-  border-radius: 26px;
+  border-radius: 18px;
   color: white;
   margin-top: 10px;
   padding: 10px 25px;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 20px;
+  font-size: 12px;
 }
 .underline {
   position: absolute;
@@ -164,4 +164,7 @@
 }
 .right-feedback{
   text-align: right;
+}
+.description-detail{
+  padding: 0 160px;
 }

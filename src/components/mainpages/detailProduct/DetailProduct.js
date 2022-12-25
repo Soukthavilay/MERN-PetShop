@@ -2,22 +2,21 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import ProductItem from '../utils/productItem/ProductItem';
-import { AiFillStar } from 'react-icons/ai';
+import { FaStar } from 'react-icons/fa';
 import Feedback from './Feedback';
 import axios from 'axios';
 import FeedbackItem from './FeedbackItem';
+import Rating from 'react-rating';
 
 function DetailProduct() {
   const params = useParams();
   const state = useContext(GlobalState);
   const [products] = state.productsAPI.products;
-  const [categoriesName] = state.categoriesAPI.categories;
   const addCart = state.userAPI.addCart;
   const [detailProduct, setDetailProduct] = useState([]);
   const [type, setType] = useState();
   const [feedback, setFeedback] = useState([]);
-  const [score,setScore] = useState([]); ;
-  const [total, setTotal] = useState(0);
+  const [result,setResult] = useState(0);
   useEffect(() => {
     if (params.id) {
       products.forEach((product) => {
@@ -28,7 +27,6 @@ function DetailProduct() {
       });
     }
   }, [params.id, products]);
-  
 
   useEffect(() => {
     if (params.id) {
@@ -43,12 +41,21 @@ function DetailProduct() {
       getFeedback();
     }
   }, [params.id]);
+  useEffect(() => {
+    if (feedback) {
+      var total = 0;
+      feedback.map((item) => {
+        total += item.rating;
+      });
+      setResult(total / feedback.length);
+    }
+  }, [feedback]);
 
   // useEffect(() => {
   //     feedback.map(item=>{
   //       console.log(item.rating)
   //     })
-  //     setTotal(total);  
+  //     setTotal(total);
   // }, []);
   // var sum= 0;
   // useEffect(() => {
@@ -56,12 +63,9 @@ function DetailProduct() {
   //     setScore(item.rating)
   //   })
   // },[]);
-  
-  
-  
 
   if (detailProduct.length === 0) return null;
-
+  console.log(detailProduct);
   const checktype = (event) => {
     const id = event.target.value;
     const types = detailProduct.types;
@@ -69,6 +73,12 @@ function DetailProduct() {
     console.log(type2);
     setType(type2[0]);
   };
+  const colors = {
+    orange: '#FFA500',
+    grey: '#808080',
+  };
+  console.log(feedback)
+  
   return (
     <>
       <div className="detail">
@@ -77,11 +87,20 @@ function DetailProduct() {
           <div className="row">
             <h3>{detailProduct.title}</h3>
           </div>
-          <p>{feedback.length} reviews</p>
+          <p>
+            <Rating
+              initialRating={result}
+              emptySymbol={<FaStar color={colors.grey} className="icon" />}
+              fullSymbol={<FaStar color={colors.orange} className="icon" />}
+              readonly
+            />
+            &nbsp;{feedback.length} reviews
+          </p>
           <div className="underline"></div>
           <br />
           <span>{type.price} $</span>
           <p>{detailProduct.description}</p>
+          <b />
           <label htmlFor="types">Choose a type:</label>
           <select onChange={checktype} name="type" id="type">
             {detailProduct.types.map((type) => (
@@ -97,12 +116,14 @@ function DetailProduct() {
           >
             Add to cart
           </Link>
-          <div>
-            <p>Categories : {}</p>
-          </div>
         </div>
       </div>
       <br />
+      <div className="description-detail">
+        <h1>Description</h1>
+        <hr />
+        <p>{detailProduct.description}</p>
+      </div>
       <Feedback feedback={feedback} />
       <br />
       <div className="product-info-tabs">

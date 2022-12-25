@@ -31,7 +31,7 @@ const Feedback = (feedback) => {
             fullSymbol={<FaStar color={colors.orange} className="icon" />}
             readonly
           />
-           average based on {feedbacks.length} reviews.
+           &nbsp;average based on {feedbacks.length} reviews.
         </p>
         {/* commnet */}
         <hr style={{ border: '3px solid #f1f1f1' }} />
