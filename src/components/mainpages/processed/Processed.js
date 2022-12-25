@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import './processed.css';
@@ -8,12 +8,19 @@ const Processed = () => {
   //console.log(state)
   const [process, setProcess] = state.orderAPI.processed;
   const [token] = state.token;
+  const [detail, setDetail] = state.userAPI.detail;
+  console.log(detail._id);
+  const [userDetail, setUserDetail] = useState([]);
 
-  console.log(token);
-  console.log(process);
+  console.log(process.user_id);
+  useEffect(() => {
+    if (detail._id == process.user_id) {
+      setUserDetail(detail);
+    }
+  }, []);
   const history = useHistory();
   const orderId = process._id;
-  console.log(orderId);
+  // console.log(orderId);
   const tranSuccess = async (id) => {
     console.log('id = ' + id);
     const order_id = id;
@@ -32,23 +39,40 @@ const Processed = () => {
       history.push('/history');
     }
   };
+  console.log(userDetail);
   return (
     <>
       <div className="processed">
         <div className="iphone">
           <div className="header">
-            <h1>Checkout</h1>
+            <h1>Payment</h1>
           </div>
           <div className="form">
             <div>
               <h2>Address</h2>
               <div className="card">
                 <address>
-                  {process.user_id}
-                  <br />
-                  {process.address}
-                  <br />
-                  {process.phone}
+                  {(() => {
+                    if (detail._id == process.user_id) {
+                      return (
+                        <div>
+                          <b>Name</b> : {detail.name}
+                          <br />
+                          <b>Email</b> : {detail.email}
+                          <br />
+                          <b>Address</b> : {process.address}
+                          <br />
+                          <b>Phone number</b> : {process.phone}
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div>
+                          <h1>Please checkout your order</h1>
+                        </div>
+                      );
+                    }
+                  })()}
                 </address>
               </div>
             </div>
@@ -57,13 +81,19 @@ const Processed = () => {
 
               <div className="form__radios">
                 <div className="form__radio">
+                <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="" width="60"/>
                   <label htmlFor="visa">
                     <svg className="icon">
-                      <use href="#icon-visa" />
+                      <use href="https://cdn-icons-png.flaticon.com/512/196/196566.png" />
                     </svg>
-                    Paypal
+                    
                   </label>
-                  <input defaultChecked id="visa" name="payment-method" type="radio" />
+                  <input
+                    defaultChecked
+                    id="visa"
+                    name="payment-method"
+                    type="radio"
+                  />
                 </div>
               </div>
             </fieldset>
