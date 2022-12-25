@@ -20,7 +20,8 @@ import { Contact } from './contact/Contact';
 import Revenue from "./revenue/Revenue";
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
-import Comment from './processed/Comment'
+import Comment from './processed/Comment';
+import Profile from './auth/Profile';
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -38,6 +39,7 @@ function Pages() {
       <Route path="/processed" exact component={isLogged ? Processed : NotFound} />
 
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
+      <Route path="/profile" exact component={isLogged ? Profile : NotFound} />
       <Route
         path="/register"
         exact
