@@ -17,11 +17,13 @@ import { GlobalState } from '../../GlobalState';
 import { Home } from './home/Home';
 import { About } from './about/About';
 import { Contact } from './contact/Contact';
-import Revenue from "./revenue/Revenue";
+import Revenue from './revenue/Revenue';
 import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
 import Comment from './processed/Comment';
 import Profile from './auth/Profile';
+import MyFeedback from './myfeedback/MyFeedback';
+import Loading from './utils/loading/Loading';
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -36,52 +38,58 @@ function Pages() {
       <Route path="/contact" exact component={Contact} />
       <Route path="/products" exact component={Products} />
       <Route path="/detail/:id" exact component={DetailProduct} />
-      <Route path="/processed" exact component={isLogged ? Processed : NotFound} />
-
-      <Route path="/login" exact component={isLogged ? NotFound : Login} />
-      <Route path="/profile" exact component={isLogged ? Profile : NotFound} />
       <Route
-        path="/register"
+        path="/processed"
         exact
-        component={isLogged ? NotFound : Register}
+        component={isLogged ? Processed : Loading}
       />
-      <Route path="/infor" exact component={isLogged ? UserInfo : NotFound} />
+
+      <Route path="/login" exact component={isLogged ? Loading : Login} />
+      <Route path="/profile" exact component={isLogged ? Profile : Loading} />
+      <Route
+        path="/myfeedback"
+        exact
+        component={isLogged ? MyFeedback : Loading}
+      />
+      <Route path="/register" exact component={isLogged ? Loading : Register} />
+      <Route path="/infor" exact component={isLogged ? UserInfo : Loading} />
 
       <Route
         path="/category"
         exact
-        component={isAdmin ? Categories : NotFound}
+        component={isAdmin ? Categories : Loading}
       />
       <Route path="/type" exact component={Type} />
       <Route
         path="/create_product"
         exact
-        component={isAdmin ? CreateProduct : NotFound}
+        component={isAdmin ? CreateProduct : Loading}
       />
       <Route
         path="/edit_product/:id"
         exact
-        component={isAdmin ? CreateProduct : NotFound}
+        component={isAdmin ? CreateProduct : Loading}
       />
 
       <Route
         path="/history"
         exact
-        component={isLogged ? OrderHistory : NotFound}
+        component={isLogged ? OrderHistory : Loading}
       />
-      <Route 
-      path="/revenue" 
-      exact 
-      component={isAdmin ? Revenue : NotFound} />
+      <Route path="/revenue" exact component={isAdmin ? Revenue : Loading} />
 
       <Route
         path="/history/:id"
         exact
-        component={isLogged ? OrderDetails : NotFound}
+        component={isLogged ? OrderDetails : Loading}
       />
 
       <Route path="/cart" exact component={Cart} />
-      <Route path="/checkout" exact component={isLogged ? Checkout : NotFound} />
+      <Route
+        path="/checkout"
+        exact
+        component={isLogged ? Checkout : Loading}
+      />
 
       <Route path="*" exact component={NotFound} />
     </Switch>

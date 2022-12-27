@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import axios from 'axios';
 import 'font-awesome/css/font-awesome.min.css';
+import Loading from '../utils/loading/Loading';
 
 const initialState = {
   // orderItems: [
@@ -22,6 +23,7 @@ const Checkout = () => {
   const [order, setOrder] = useState(initialState);
   const [cart, setCart] = state.userAPI.cart;
   const [process, setProcess] = state.orderAPI.processed;
+  const [loading, setLoading] = useState(false);
   console.log(process);
   console.log(cart);
   const history = useHistory();
@@ -34,6 +36,7 @@ const Checkout = () => {
     setOrder({ ...order, [name]: value });
   };
   const addToCart = async (cart) => {
+    setLoading(true);
     await axios.patch(
       '/user/addcart',
       { cart },
@@ -41,6 +44,7 @@ const Checkout = () => {
         headers: { Authorization: token },
       }
     );
+    setLoading(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,6 +80,7 @@ const Checkout = () => {
     addToCart([]);
     history.push('/processed');
   };
+
   return (
     <div className="body-checkout">
       {/* <h1 style={{ textAlign: 'center', marginBottom: '10px' }}>
@@ -193,7 +198,7 @@ const Checkout = () => {
                   src={product.images.url}
                   alt=""
                 />
-                
+
                 <span className="price">{product.types[0].price}</span>
               </div>
             ))}

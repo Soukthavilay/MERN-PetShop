@@ -101,7 +101,6 @@ function Products() {
           );
         })}
       </div>
-
       <LoadMore />
       {products.length === 0 && <Loading />}
     </>

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 import './processed.css';
 import axios from 'axios';
+import Loading from '../utils/loading/Loading';
 const Processed = () => {
   const state = useContext(GlobalState);
   //console.log(state)
@@ -11,6 +12,8 @@ const Processed = () => {
   const [detail, setDetail] = state.userAPI.detail;
   console.log(detail._id);
   const [userDetail, setUserDetail] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
   console.log(process.user_id);
   useEffect(() => {
@@ -26,19 +29,27 @@ const Processed = () => {
     const order_id = id;
     //paypal
     if (token) {
-      const res = await axios.post(
+    setLoading(true);
+      const res = await axios.post(       
         '/api/cart/checkout',
         { order_id },
         {
           headers: { Authorization: token },
         }
       );
+      setLoading(false);
       console.log(res.data.url);
       window.open(res.data.url, '_blank');
       //alert('Bạn đã đặt hàng thành công.');
       history.push('/history');
     }
   };
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   console.log(userDetail);
   return (
     <>

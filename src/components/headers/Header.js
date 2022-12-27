@@ -9,6 +9,7 @@ import { BsCart3 } from 'react-icons/bs';
 import { HiOutlineLogout } from 'react-icons/hi';
 import { AiOutlineHistory, AiOutlineHeart } from 'react-icons/ai';
 import Logo from './icon/logo-white-1.svg';
+import { gsap } from 'gsap';
 
 function Header() {
   const state = useContext(GlobalState);
@@ -16,6 +17,17 @@ function Header() {
   const [isAdmin] = state.userAPI.isAdmin;
   const [cart] = state.userAPI.cart;
   const [menu, setMenu] = useState(false);
+
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      repeatDelay: 1,
+      yoyo: true,
+      scale: 1.3,
+    });
+  };
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, { scale: 1 });
+  };
 
   const logoutUser = async () => {
     await axios.get('/user/logout');
@@ -29,28 +41,28 @@ function Header() {
     };
     return (
       <>
-          <div className="btn btn-primary" onClick={ToggleSidebar}>
-            <i className="fa fa-bars"></i>
-            <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
-              <div className="sd-body">
-                <ul>
-                  <li>
-                    <Link to="/create_product">Create Product</Link>
-                  </li>
-                  <li>
-                    <Link to="/category">Create Category</Link>
-                  </li>
-                  <li>
-                    <Link to="/revenue">Revenue</Link>
-                  </li>
-                </ul>
-              </div>
+        <div className="btn btn-primary" onClick={ToggleSidebar}>
+          <i className="fa fa-bars"></i>
+          <div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
+            <div className="sd-body">
+              <ul>
+                <li>
+                  <Link to="/create_product">Create Product</Link>
+                </li>
+                <li>
+                  <Link to="/category">Create Category</Link>
+                </li>
+                <li>
+                  <Link to="/revenue">Revenue</Link>
+                </li>
+              </ul>
             </div>
-            <div
-              className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`}
-              onClick={ToggleSidebar}
-            ></div>
           </div>
+          <div
+            className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`}
+            onClick={ToggleSidebar}
+          ></div>
+        </div>
       </>
     );
   };
@@ -66,17 +78,17 @@ function Header() {
   const loggedRouter = () => {
     return (
       <>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/history">
             <AiOutlineHistory />
           </Link>
         </li>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/infor">
             <BiUser />
           </Link>
         </li>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/" onClick={logoutUser}>
             <HiOutlineLogout />
           </Link>
@@ -109,24 +121,24 @@ function Header() {
       </div>
 
       <ul style={styleMenu}>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/">{'home'}</Link>
         </li>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/products">{isAdmin ? 'Products' : 'Shop'}</Link>
         </li>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/about">{'about'}</Link>
         </li>
-        <li>
+        <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
           <Link to="/contact">{'contact'}</Link>
         </li>
-        
+
         {isAdmin && adminRouter()}
         {isLogged ? (
           loggedRouter()
         ) : (
-          <li>
+          <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
             <Link to="/login">
               <BiUser />
             </Link>

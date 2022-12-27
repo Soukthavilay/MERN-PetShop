@@ -27,7 +27,7 @@ export const About = () => {
               <p>Some text that describes me lorem ipsum ipsum lorem.</p>
               <p>vivopakselaocom@gmail.com</p>
               <p>
-                <button className="button">Contact</button>
+                <button href="https://www.facebook.com/sko.bouphapanh/" className="button">Contact</button>
               </p>
             </div>
           </div>
