@@ -59,7 +59,7 @@ function Cart() {
   };
 
   const removeProduct = (id) => {
-    if (window.confirm('Bạn có muốn xóa sản phẩm không?')) {
+    if (window.confirm('Do you want to delete the product?')) {
       cart.forEach((item, index) => {
         if (item._id === id) {
           cart.splice(index, 1);

@@ -12,7 +12,8 @@ h4 {
   margin: auto;
   width: 100%;
 }
-.history-page > thead {
+
+.history-page table > thead {
   background-color: rgba(63, 60, 154, 0.9);
 }
 
@@ -37,4 +38,8 @@ table a {
   width: 70px;
   height: 100px;
   object-fit: cover;
+}
+.img-correct {
+  width: 20px !important;
+  height: 20px !important;
 }

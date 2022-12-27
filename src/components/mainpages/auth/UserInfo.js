@@ -36,7 +36,9 @@ function UserInfo() {
         </div>
         <div className="detail-user-box">
           <div className="user-box">
-            <p>Your Feedback</p>
+            <p>
+              <Link to="/myfeedback">Your feedback</Link>
+            </p>
           </div>
         </div>
       </div>

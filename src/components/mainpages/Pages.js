@@ -22,6 +22,7 @@ import Checkout from './checkout/Checkout';
 import Processed from './processed/Processed';
 import Comment from './processed/Comment';
 import Profile from './auth/Profile';
+import MyFeedback from './myfeedback/MyFeedback';
 
 function Pages() {
   const state = useContext(GlobalState);
@@ -40,6 +41,7 @@ function Pages() {
 
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route path="/profile" exact component={isLogged ? Profile : NotFound} />
+      <Route path="/myfeedback" exact component={isLogged ? MyFeedback : NotFound} />
       <Route
         path="/register"
         exact

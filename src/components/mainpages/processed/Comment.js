@@ -1,31 +1,31 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
+import { FaStar } from 'react-icons/fa';
 import { GlobalState } from '../../../GlobalState';
 import axios from 'axios';
 import Loading from '../utils/loading/Loading';
 import Star from '../detailProduct/Star';
-import {useHistory} from 'react-router-dom';
-import Rating from 'react-rating'
+import { useHistory } from 'react-router-dom';
+import Rating from 'react-rating';
 
 const Comment = () => {
   const state = useContext(GlobalState);
   const params = useParams();
   const [product_id, setProduct_id] = useState();
-  const [content,setContent] = useState('');
-  const [score,setScore] = useState(0);
+  const [content, setContent] = useState('');
+  const [score, setScore] = useState(0);
   const [review] = state.orderAPI.reviews;
   const [images, setImages] = useState(false);
   const [loading, setLoading] = useState(false);
   const [token] = state.token;
   const history = useHistory();
-  console.log(token)
-  console.log()
+  console.log(token);
+  console.log();
   useEffect(() => {
     if (params.id) {
       review.forEach((item) => {
         if (item.product_id === params.id) setProduct_id(item.product_id);
-        console.log(item.product_id)
+        console.log(item.product_id);
       });
     }
   }, [params.id, product_id]);
@@ -81,27 +81,33 @@ const Comment = () => {
   };
   const handleFeedback = async (e) => {
     const result = {
-        content:content.content,
-        image_url:images.url,
-        product_id:product_id,
-        rating:score,
-    }
-    console.log(result)
+      content: content.content,
+      image_url: images.url,
+      product_id: product_id,
+      rating: score,
+    };
+    console.log(result);
     await axios.post(
-        '/api/feedback/create',
-        { ...result },
-        {
-          headers: { Authorization: token },
-        }
-      );
-      console.log(result)
-      alert('Thank you for your feedback !')
-      history.push(`/detail/${product_id}`);
-  }
+      '/api/feedback/create',
+      { ...result },
+      {
+        headers: { Authorization: token },
+      }
+    );
+    console.log(result);
+    alert('Thank you for your feedback !');
+    history.push(`/detail/${product_id}`);
+  };
+  const colors = {
+    orange: '#FFA500',
+    grey: '#808080',
+  };
   return (
     <div className="product-info-tabs">
       <p>Your rating</p>
       <Rating
+        emptySymbol={<FaStar color={colors.grey} className="icon" />}
+        fullSymbol={<FaStar color={colors.orange} className="icon" />}
         onChange={(rate) => setScore(rate)}
       />
       <p>Your message</p>
