@@ -5,12 +5,17 @@ import { VscCircleLargeFilled } from 'react-icons/vsc';
 import { gsap } from 'gsap';
 
 export const Banner = () => {
-  gsap.to('.banner-right', {
-    // rotation: 360,
-    // x:0,
-    duration: 1,
-    // yoyo: true,
-  });
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      repeatDelay: 1,
+      // rotate: 360,
+      // yoyo: true,
+      scale: 1.1,
+    });
+  };
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, { scale: 1 });
+  };
   return (
     <>
       <div className="banner-content">
@@ -62,7 +67,11 @@ export const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="banner-right split">
+        <div
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          className="banner-right split"
+        >
           <img
             src="https://demothemedh.b-cdn.net/petpuzzy/wp-content/uploads/2022/05/h1_slide-image.png"
             alt="banner-right"

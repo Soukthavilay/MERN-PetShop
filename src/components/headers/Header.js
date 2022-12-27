@@ -140,7 +140,7 @@ function Header() {
         ) : (
           <li onMouseEnter={onEnter} onMouseLeave={onLeave}>
             <Link to="/login">
-              <BiUser />
+              {/* <BiUser /> */}LOGIN
             </Link>
           </li>
         )}

@@ -38,8 +38,21 @@ function CreateProduct() {
   const [onEdit, setOnEdit] = useState(false);
   const [callback, setCallback] = state.productsAPI.callback;
   // console.log(JSON.stringify(product.types[0].name))
-  const [edit,setEdit] = useState();
- 
+  const [edit, setEdit] = useState({
+    title: '',
+    description:
+      'Stock up on the perfect afternoon snack, lunchtime side or baking choice with a Three-Pound Bag of Honeycrisp Apples from Good & Gather™. Boasting the perfect blend of sweet and crisp flavors, these delicious Honeycrisp apples promise to hit the spot when you’re craving something fresh and tasty, and the crisp, juicy texture is sure to satisfy.',
+    category: '',
+    _id: '',
+    types: [
+      {
+        name: '',
+        price: 0,
+        amount: 0,
+      },
+    ],
+  });
+
   useEffect(() => {}, []);
   useEffect(() => {
     if (param.id) {
@@ -48,7 +61,7 @@ function CreateProduct() {
       products.forEach((product) => {
         if (product._id === param.id) {
           console.log(product);
-          setProduct(product);
+          setEdit(product);
           setImages(product.images);
         }
       });
@@ -114,6 +127,10 @@ function CreateProduct() {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
   };
+  const handleChangeInputEdit = (e) => {
+    const { name, value } = e.target;
+    setEdit({ ...edit, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -141,13 +158,15 @@ function CreateProduct() {
       if (!images) return alert('image not upload');
 
       if (onEdit) {
+        console.log(edit)
         await axios.put(
           `/api/products/${product._id}`,
-          { ...rs, images },
+          { ...edit, images },
           {
             headers: { Authorization: token },
           }
         );
+        
       } else {
         console.log(rs);
         await axios.post(
@@ -168,7 +187,8 @@ function CreateProduct() {
   const styleUpload = {
     display: images ? 'block' : 'none',
   };
-
+  console.log(edit);
+  
   return (
     <div className="create_product">
       <div className="upload">
@@ -193,79 +213,58 @@ function CreateProduct() {
               name="title"
               id="title"
               required
-              value={product.title}
-              onChange={handleChangeInput}
+              value={edit.title}
+              onChange={handleChangeInputEdit}
               // disabled={onEdit}
             />
           </div>
           <label htmlFor="title">Types</label>
-          <div className="row-type">
-            <div>
-              <input
-                type="text"
-                name="types"
-                id="types"
-                // required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                name="price"
-                id="price"
-                placeholder="Price"
-                // required
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                name="amount"
-                id="amount"
-                placeholder="Amount"
-                // required
-                value={amount}
-                onChange={(e) => setMount(e.target.value)}
-              />
-            </div>
-            
-            <ul>
-              {product.types.map((element) => (
-                <li key={element._id}>
-                  name : {element.name} , price : {element.price}$ , amount :{' '}
-                  {element.amount} <span onClick={handleDestroy}>X</span>
-                </li>
-              ))}
-            </ul>
-            <p id="output"></p>
-            <button
-              type="button"
-              onClick={() => {
-                setName('');
-                setPrice('');
-                setMount('');
-                product.types.push({
-                  name: name,
-                  price: parseInt(price),
-                  amount: parseInt(amount),
-                });
-              }}
-            >
-              Add
-            </button>
-            <ul>
-              {types.map((artist) => (
-                <li key={artist.id}>
-                  name :{artist.name} , price: {artist.price} , amount:
-                  {artist.amount} <span onClick={handleDestroy}>X</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {edit.types.map((item) => {
+            return (
+              <div className="row-type" key={item._id}>
+                <div>
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    // required
+                    value={item.name || ''}
+                    onChange={handleChangeInputEdit}
+
+                    // onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label>Price</label>
+                  <input
+                    type="text"
+                    name="price"
+                    id="price"
+                    // required
+                    value={item.price || ''}
+                    onChange={handleChangeInputEdit}
+
+                    // onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label>Amount</label>
+                  <input
+                    type="text"
+                    name="amount"
+                    id="amount"
+                    // required
+                    value={item.amount || ''}
+                    onChange={handleChangeInputEdit}
+
+                    // onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+              </div>
+            );
+          })}
           <div className="row">
             <label htmlFor="description">Description</label>
             <textarea
@@ -273,9 +272,9 @@ function CreateProduct() {
               name="description"
               id="description"
               required
-              value={product.description}
+              value={edit.description || ''}
               rows="5"
-              onChange={handleChangeInput}
+              onChange={handleChangeInputEdit}
             />
           </div>
 
@@ -283,13 +282,13 @@ function CreateProduct() {
             <label htmlFor="categories">Categories: </label>
             <select
               name="category"
-              value={product.category}
-              onChange={handleChangeInput}
+              value={edit.category || ''}
+              onChange={handleChangeInputEdit}
             >
-              <option value="">Please select category</option>
+              <option>Please select category</option>
               {categories.map((category) => (
-                <option value={category._id} key={category._id}>
-                  {category.name}
+                <option value={category._id || ''} key={category._id}>
+                  {category.name || ''}
                 </option>
               ))}
             </select>
@@ -372,7 +371,7 @@ function CreateProduct() {
                       setTypes(types.filter((a) => a.id !== artist.id));
                     }}
                   >
-                    <AiOutlineCloseCircle/>
+                    <AiOutlineCloseCircle />
                   </button>
                 </li>
               ))}

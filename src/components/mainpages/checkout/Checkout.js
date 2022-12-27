@@ -36,7 +36,7 @@ const Checkout = () => {
     setOrder({ ...order, [name]: value });
   };
   const addToCart = async (cart) => {
-    setLoading(true);
+    
     await axios.patch(
       '/user/addcart',
       { cart },
@@ -44,10 +44,11 @@ const Checkout = () => {
         headers: { Authorization: token },
       }
     );
-    setLoading(false);
+    
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const rs = [];
     for (const test of cart) {
       var obj = {
@@ -58,6 +59,7 @@ const Checkout = () => {
       console.log(test);
       rs.push(obj);
       //setOrderItem(obj);
+      
     }
 
     const re = {
@@ -74,12 +76,19 @@ const Checkout = () => {
         headers: { Authorization: token },
       }
     );
+    setLoading(false);
     setProcess(orders.data.order);
     //alert('Bạn đã đặt hàng thành công.');
     setCart([]);
     addToCart([]);
     history.push('/processed');
   };
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
   return (
     <div className="body-checkout">
