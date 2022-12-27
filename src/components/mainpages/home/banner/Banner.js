@@ -2,19 +2,26 @@ import React from 'react';
 import { GoPlay } from 'react-icons/go';
 import { HiOutlinePlusCircle } from 'react-icons/hi';
 import { VscCircleLargeFilled } from 'react-icons/vsc';
+import { gsap } from 'gsap';
 
 export const Banner = () => {
+  gsap.to('.banner-right', {
+    // rotation: 360,
+    // x:0,
+    duration: 1,
+    // yoyo: true,
+  });
   return (
     <>
       <div className="banner-content">
         <div className="banner-left-split">
-          <div className='banner-left'>
-            <div className='banner-large-label'>
-              <span className='big-label'>Pet Care</span>
-              <span className='big-label'>For Today's</span>
-              <span className='big-label'>Pet Parents</span>
+          <div className="banner-left">
+            <div className="banner-large-label">
+              <span className="big-label">Pet Care</span>
+              <span className="big-label">For Today's</span>
+              <span className="big-label">Pet Parents</span>
             </div>
-            <p className='banner-paragraph'>
+            <p className="banner-paragraph">
               Grooming and Supply provides grooming service for all dog and cat
               breeds. We are fully committed to the health.
             </p>
@@ -23,28 +30,34 @@ export const Banner = () => {
             <button>
               Create Schedule <HiOutlinePlusCircle />
             </button>
-            <h3 className='banner-play-video'>
+            <h3 className="banner-play-video">
               <GoPlay style={{ color: '#F76631' }} />
               Play Video
             </h3>
           </div>
-          <div className='banner-number-container'>
-            <div className='banner-number'>
-              <div className='banner-icon-circle'>
-                <VscCircleLargeFilled style={{ color: '#F76631' }} size='25px' />
+          <div className="banner-number-container">
+            <div className="banner-number">
+              <div className="banner-icon-circle">
+                <VscCircleLargeFilled
+                  style={{ color: '#F76631' }}
+                  size="25px"
+                />
               </div>
-              <div className='banner-number-element'>
-                <p className='large-text'>28K</p>
-                <p className='small-text'>Veterinarian</p>
+              <div className="banner-number-element">
+                <p className="large-text">28K</p>
+                <p className="small-text">Veterinarian</p>
               </div>
             </div>
-            <div className='banner-number'>
-              <div className='banner-icon-circle'>
-                <VscCircleLargeFilled style={{ color: '#524eb7' }} size='25px' />
+            <div className="banner-number">
+              <div className="banner-icon-circle">
+                <VscCircleLargeFilled
+                  style={{ color: '#524eb7' }}
+                  size="25px"
+                />
               </div>
-              <div className='banner-number-element'>
-                <p className='large-text'>13K</p>
-                <p className='small-text'>Helped Pet</p>
+              <div className="banner-number-element">
+                <p className="large-text">13K</p>
+                <p className="small-text">Helped Pet</p>
               </div>
             </div>
           </div>

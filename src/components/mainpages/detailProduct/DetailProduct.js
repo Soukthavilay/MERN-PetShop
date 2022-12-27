@@ -7,6 +7,7 @@ import Feedback from './Feedback';
 import axios from 'axios';
 import FeedbackItem from './FeedbackItem';
 import Rating from 'react-rating';
+import gsap from 'gsap';
 
 function DetailProduct() {
   const params = useParams();
@@ -16,7 +17,7 @@ function DetailProduct() {
   const [detailProduct, setDetailProduct] = useState([]);
   const [type, setType] = useState();
   const [feedback, setFeedback] = useState([]);
-  const [result,setResult] = useState(0);
+  const [result, setResult] = useState(0);
   useEffect(() => {
     if (params.id) {
       products.forEach((product) => {
@@ -63,6 +64,16 @@ function DetailProduct() {
   //     setScore(item.rating)
   //   })
   // },[]);
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      repeatDelay: 1,
+      yoyo: true,
+      scale: 1.5,
+    });
+  };
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, { scale: 1 });
+  };
 
   if (detailProduct.length === 0) return null;
   console.log(detailProduct);
@@ -77,12 +88,17 @@ function DetailProduct() {
     orange: '#FFA500',
     grey: '#808080',
   };
-  console.log(feedback)
-  
+  console.log(feedback);
+
   return (
     <>
       <div className="detail">
-        <img src={detailProduct.images.url} alt="" />
+        <img
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          src={detailProduct.images.url}
+          alt=""
+        />
         <div className="box-detail">
           <div className="row">
             <h3>{detailProduct.title}</h3>

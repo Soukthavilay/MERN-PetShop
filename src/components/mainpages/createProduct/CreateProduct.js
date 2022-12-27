@@ -62,18 +62,18 @@ function CreateProduct() {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin) return alert('you not admin');
+      if (!isAdmin) return alert('You are not admin');
       const file = e.target.files[0];
 
-      if (!file) return alert('Tệp không tồn tại.');
+      if (!file) return alert('The file is not correct.');
 
       if (file.size > 1024 * 1024)
         // 1mb
-        return alert('Size ảnh lớn quá . Hãy thử đổi ảnh khác');
+        return alert('Image is large. Please try again');
 
       if (file.type !== 'image/jpeg' && file.type !== 'image/png')
         // 1mb
-        return alert('Tệp không đúng. Hãy kiểm tra lại ');
+        return alert('The file is not correct.Please check again ');
 
       let formData = new FormData();
       formData.append('file', file);

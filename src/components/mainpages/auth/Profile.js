@@ -48,7 +48,7 @@ const Profile = () => {
           <label className="label-information">Email address*</label>
           <input type="text" id="email" name="email" placeholder={user.email} />
           <div>
-            <fieldset className="password-change">
+            {/* <fieldset className="password-change">
               <legend>Password change</legend>
               <label className="label-information">Current password</label>
               <input
@@ -64,7 +64,7 @@ const Profile = () => {
                 id="confirm-new-password"
                 name="confirm-new-password"
               />
-            </fieldset>
+            </fieldset> */}
           </div>
           <button
             type="submit"

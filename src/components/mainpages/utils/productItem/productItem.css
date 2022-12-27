@@ -1,11 +1,11 @@
 .product_card {
-    width: 308px !important;
-    overflow: hidden;
-    height: fit-content;
-    padding: 17px;
-    box-shadow: 0 0 15px #ddd;
-    margin: 22px 19px;
-    position: relative;
+  width: 308px !important;
+  overflow: hidden;
+  height: fit-content;
+  padding: 17px;
+  box-shadow: 0 0 15px #ddd;
+  margin: 22px 19px;
+  position: relative;
 }
 .product_card > img {
   width: 100%;
@@ -13,7 +13,7 @@
   display: block;
   object-fit: cover;
 }
-.product_box > h2 > a{
+.product_box > h2 > a {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -93,4 +93,22 @@
       rgba(179, 60, 16, 0.1)
     ),
     rgba(247, 102, 49, 0.1);
+}
+.content {
+  animation-play-state: paused;
+}
+.animation:hover {
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: animation 5s linear infinite;
+}
+@keyframes animation {
+  0% {
+    text-indent: 50px;
+  }
+  100% {
+    text-indent: -300px;
+  }
 }

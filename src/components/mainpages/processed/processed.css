@@ -73,12 +73,13 @@ legend {
   inline-size: 100%;
   color: #000;
 }
-.process-table > tbody , tr {
+.process-table > tbody,
+tr {
   color: #000;
   border: 1px solid #686464;
 }
 .process-table > h2 {
-  color:#000;
+  color: #000;
 }
 .process-table > td {
   padding-block: 0.125em;
@@ -159,7 +160,7 @@ legend {
   vertical-align: middle;
 }
 .iphone {
-  background-color: #e9e8e8;
+  background-color: #e9e8e8c9;
   /* background-image: linear-gradient(to bottom, #fbf6f7, #fff); */
   /* border-radius: 2em; */
   /* block-size: 812px; */
@@ -173,9 +174,11 @@ legend {
   /* display: flex; */
   align-items: center;
   width: 70%;
-  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
 }
-.feedback-upload-img{
+.feedback-upload-img {
   width: 200px;
   height: 200px;
 }

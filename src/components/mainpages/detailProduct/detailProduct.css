@@ -28,6 +28,7 @@
   text-transform: uppercase;
   color: darkblue;
   letter-spacing: 2px;
+  font-size: 22px;
   font-weight: 2rem;
 }
 .box-detail p {
@@ -97,13 +98,17 @@
   object-fit: cover;
   display: block;
 }
+/* .feedback-item > img:hover {
+  width: 500px;
+  height: 500px;
+} */
 
 /* feed back rating */
 .heading-feedback {
   font-size: 25px;
   margin-right: 25px;
 }
-.padding-feedback{
+.padding-feedback {
   padding: 0 160px;
 }
 .row-feedback:after {
@@ -162,9 +167,9 @@
     display: none;
   }
 }
-.right-feedback{
+.right-feedback {
   text-align: right;
 }
-.description-detail{
+.description-detail {
   padding: 0 160px;
 }

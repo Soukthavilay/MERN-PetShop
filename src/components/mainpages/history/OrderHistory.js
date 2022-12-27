@@ -12,7 +12,7 @@ function OrderHistory() {
   const [history, setHistory] = state.userAPI.history;
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   //const [myorder,setMyorder] = useState([])
   // useEffect(() => {
   //     (async ()=>{
@@ -50,13 +50,13 @@ function OrderHistory() {
     // e.preventDefault();
     // console.log(delivery_id);
     const rs = {
-      delivery_id: "delivery_id",
+      delivery_id: 'delivery_id',
       order_id: id,
     };
     if (window.confirm('Confirm this order?')) {
-      console.log(rs)
+      console.log(rs);
       await axios.get('/api/delivery', { ...rs });
-      
+
       alert('This order has been confirm');
     } else {
       alert('No');
@@ -139,8 +139,6 @@ function OrderHistory() {
           </table>
         </>
       )}
-
-      <LoadMore />
       {history.length === 0 && <Loading />}
     </div>
   );
