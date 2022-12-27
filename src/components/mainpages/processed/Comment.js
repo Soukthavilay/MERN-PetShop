@@ -106,6 +106,7 @@ const Comment = () => {
     <div className="product-info-tabs">
       <p>Your rating</p>
       <Rating
+        // initialRating={5}
         emptySymbol={<FaStar color={colors.grey} className="icon" />}
         fullSymbol={<FaStar color={colors.orange} className="icon" />}
         onChange={(rate) => setScore(rate)}

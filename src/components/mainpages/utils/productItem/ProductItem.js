@@ -41,7 +41,7 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
 
       <div className="product_box">
         <span>{newCate}</span>
-        <h2 className="content animation" title={product.title}>
+        <h2 className="content animation">
           <Link to={`/detail/${product._id}`}>{product.title}</Link>
         </h2>
         <p>{product.description}</p>
