@@ -31,7 +31,9 @@ function UserAPI(token) {
   }, [token]);
 
   const addCart = async (product,type) => {
+    console.log(type.amount)
     if (!isLogged) return alert('Please login to continue buying');
+    if(type.amount === 0) return alert('This type not have in stock');
     var newProduct = Object.assign({}, product);
     newProduct.types = [type]
     const check = cart.every((item) => {

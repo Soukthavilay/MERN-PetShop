@@ -18,12 +18,12 @@ function Categories() {
                 const res = await axios.put(`/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                alert("Success")
             }else{
                 const res = await axios.post('/api/category', {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                alert("Success")
             }
             setOnEdit(false)
             setCategory('')
@@ -55,11 +55,11 @@ function Categories() {
     return (
         <div className="categories">
             <form onSubmit={createCategory}>
-                <label htmlFor="category">Loại Sản Phẩm</label>
+                <label htmlFor="category">Categories</label>
                 <input type="text" name="category" value={category} required
                 onChange={e => setCategory(e.target.value)} />
 
-                <button type="submit">{onEdit? "Sửa" : "Tạo"}</button>
+                <button type="submit">{onEdit? "Edit" : "Create"}</button>
             </form>
 
             <div className="col">
@@ -68,8 +68,8 @@ function Categories() {
                         <div className="row" key={category._id}>
                             <p>{category.name}</p>
                             <div>
-                                <button onClick={() => editCategory(category._id, category.name)}>Sửa</button>
-                                <button onClick={() => deleteCategory(category._id)}>Xóa</button>
+                                <button onClick={() => editCategory(category._id, category.name)}>Edit</button>
+                                <button onClick={() => deleteCategory(category._id)}>Delete</button>
                             </div>
                         </div>
                     ))
