@@ -1,6 +1,6 @@
 .site-footer {
-  background-color: #26272b;
-  padding: 45px 0 20px;
+  background-color: #1a167a;
+  /* padding: 45px 0 20px; */
   font-size: 15px;
   line-height: 24px;
   color: #737373;
@@ -135,4 +135,7 @@
     margin-right: 0;
     font-weight: 600;
   }
+}
+.row-foot{
+  display:flex;
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { GlobalState } from '../../../GlobalState';
 import axios from 'axios';
-import PaypalButton from './PaypalButton';
+// import PaypalButton from './PaypalButton';
 //import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { Link } from 'react-router-dom';
 
@@ -86,7 +86,7 @@ function Cart() {
 
     setCart([]);
     addToCart([]);
-    alert('Bạn đã đặt hàng thành công.');
+    alert('Your order has been successfully placed.');
   };
   // hom qua lam toi day
   const Checkout = async (e) => {
@@ -103,7 +103,7 @@ function Cart() {
   if (cart.length === 0)
     return (
       <h2 style={{ textAlign: 'center', fontSize: '2rem' }}>
-        Chưa có sản phẩm{' '}
+        No product{' '}
       </h2>
     );
   return (

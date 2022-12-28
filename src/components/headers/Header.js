@@ -52,9 +52,9 @@ function Header() {
                 <li>
                   <Link to="/category">Create Category</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/revenue">Revenue</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

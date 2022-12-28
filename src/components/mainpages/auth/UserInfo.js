@@ -5,6 +5,9 @@ import { gsap } from 'gsap';
 import axios from 'axios';
 
 function UserInfo() {
+  const state = useContext(GlobalState)
+  const [isAdmin] = state.userAPI.isAdmin;
+
   const onEnter = ({ currentTarget }) => {
     gsap.to(currentTarget, {
       repeatDelay: 1,
@@ -23,43 +26,96 @@ function UserInfo() {
   };
   return (
     <>
-      <div className="container-information">
-        <div className="header-information">
-          <p className="header-label">Account details</p>
-          <div className="header-direction">
-            <Link to="/">Home /</Link>
-            <Link to="/infor">My account</Link>
+      {isAdmin ? (
+        <div className="container-information">
+          <div className="header-information">
+            <p className="header-label">Admin</p>
+            <div className="header-direction">
+              <Link to="/">Home /</Link>
+              <Link to="/infor">Manager</Link>
+            </div>
+          </div>
+
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/profile">Personal Profile</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/history">All Order</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/create_product">Create Product</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/category">Create Category</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/" onClick={logoutUser}>
+                  Logout
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="detail-user-box">
-          <div className="user-box">
-            <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
-              <Link to="/profile">Personal Profile</Link>
-            </p>
+      ) : (
+        <div className="container-information">
+          <div className="header-information">
+            <p className="header-label">Account details</p>
+            <div className="header-direction">
+              <Link to="/">Home /</Link>
+              <Link to="/infor">My account</Link>
+            </div>
+          </div>
+
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/profile">Personal Profile</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/history">Recent Orders</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/cart">Cart</Link>
+              </p>
+            </div>
+          </div>
+          <div className="detail-user-box">
+            <div className="user-box">
+              <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                <Link to="/" onClick={logoutUser}>
+                  Logout
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="detail-user-box">
-          <div className="user-box">
-            <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
-              <Link to="/history">Recent Orders</Link>
-            </p>
-          </div>
-        </div>
-        <div className="detail-user-box">
-          <div className="user-box">
-            <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
-              <Link to="/cart">Cart</Link>
-            </p>
-          </div>
-        </div>
-        <div className="detail-user-box">
-          <div className="user-box">
-            <p onMouseEnter={onEnter} onMouseLeave={onLeave}>
-              <Link to="/" onClick={logoutUser}>Logout</Link>
-            </p>
-          </div>
-        </div>
-      </div>
+      )}
     </>
   );
 }

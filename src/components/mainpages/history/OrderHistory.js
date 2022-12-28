@@ -5,6 +5,7 @@ import { FcApproval, FcHighPriority, FcLineChart } from 'react-icons/fc';
 import axios from 'axios';
 import LoadMore from '../products/LoadMore';
 import Loading from '../utils/loading/Loading';
+import ItemCorrect from './ItemCorrect';
 
 function OrderHistory() {
   const state = useContext(GlobalState);
@@ -13,6 +14,7 @@ function OrderHistory() {
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
   const [page, setPage] = useState(2);
+  const [me, setMe] = useState();
   //const [myorder,setMyorder] = useState([])
   // useEffect(() => {
   //     (async ()=>{
@@ -46,24 +48,7 @@ function OrderHistory() {
       getHistory();
     }
   }, [token, isAdmin, setHistory]);
-  const confirm = async (id) => {
-    // e.preventDefault();
-    // console.log(delivery_id);
-    const rs = {
-      delivery_id: 'delivery_id',
-      order_id: id,
-    };
-    if (window.confirm('Confirm this order?')) {
-      console.log(rs);
-      await axios.get('/api/delivery', { ...rs });
 
-      alert('This order has been confirm');
-    } else {
-      alert('No');
-    }
-    // const id = e.target.value;
-    console.log(id);
-  };
   return (
     <div className="history-page">
       <h2>{isAdmin ? 'All Order' : 'My Order'}</h2>
@@ -76,27 +61,17 @@ function OrderHistory() {
               <tr>
                 <th>ID Thanh Toán</th>
                 <th>Ngày Mua</th>
+                <th>Địa chỉ</th>
+                <th>Phone Number</th>
                 <th>Status</th>
                 <th>Delivery</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {history.map((items) => (
-                <tr key={items._id}>
-                  <td>{items._id}</td>
-                  <td>{new Date(items.createdAt).toLocaleDateString()}</td>
-                  <td>{items.status}</td>
-                  <td>
-                    <button type="button" onClick={() => confirm(items._id)}>
-                      Confirm
-                    </button>
-                  </td>
-                  <td>
-                    <Link to={`/history/${items._id}`}>Xem</Link>
-                  </td>
-                </tr>
-              ))}
+              {history.map((items) => {
+                return <ItemCorrect key={items._id} item={items} />;
+              })}
             </tbody>
           </table>
         </>
@@ -117,18 +92,25 @@ function OrderHistory() {
             <tbody>
               {history.map((items) => (
                 <tr key={items._id}>
-                  {/* <td>{items._id}</td> */}
+                  {/* <td>{items._id}</td> */ console.log(items)}
                   <td>{new Date(items.createdAt).toLocaleDateString()}</td>
                   <td>{items.address}</td>
                   <td>{items.phone}</td>
                   <td>{items.status}</td>
                   <td>
-                    <img
-                      className="img-correct"
-                      src="https://cdn-icons-png.flaticon.com/128/4436/4436481.png"
-                      width="10"
-                      alt=""
-                    />
+                    {items.delivery == null ? (
+                      <img
+                        className="img-correct"
+                        src="https://cdn-icons-png.flaticon.com/128/2972/2972531.png"
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        className="img-correct"
+                        src="https://cdn-icons-png.flaticon.com/128/8888/8888205.png"
+                        alt=""
+                      />
+                    )}
                   </td>
                   <td>
                     <Link to={`/history/${items._id}`}>Xem</Link>

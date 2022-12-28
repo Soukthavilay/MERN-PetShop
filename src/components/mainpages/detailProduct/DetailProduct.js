@@ -114,7 +114,7 @@ function DetailProduct() {
           </p>
           <div className="underline"></div>
           <br />
-          <span>{type.price} $</span>
+          <span>{type.price} $</span>&nbsp;&nbsp;&nbsp;&nbsp;stock: <span>{type.amount}</span>
           <p>{detailProduct.description}</p>
           <b />
           <label htmlFor="types">Choose a type:</label>
@@ -126,7 +126,7 @@ function DetailProduct() {
             ))}
           </select>
           <Link
-            to="/cart"
+            to={`/detail/${detailProduct._id}`}
             className="cart"
             onClick={() => addCart(detailProduct, type)}
           >
